@@ -1,0 +1,257 @@
+* {
+	-webkit-transition: all 150ms ease-in-out;
+	-moz-transition: all 150ms ease-in-out;
+	-o-transition: all 150ms ease-in-out;
+	transition: all 150ms ease-in-out;
+}
+
+._fw100 {
+	font-weight: 100;
+}
+
+._fw200 {
+	font-weight: 200;
+}
+
+._fw300 {
+	font-weight: 300;
+}
+
+._fw400 {
+	font-weight: 400;
+}
+
+._fw500 {
+	font-weight: 500;
+}
+
+._fw600 {
+	font-weight: 600;
+}
+
+._fw700 {
+	font-weight: 700;
+}
+
+._fw800 {
+	font-weight: 800;
+}
+
+._fw900 {
+	font-weight: 900;
+}
+
+._ls1 {
+	letter-spacing: 1px;
+}
+@media(min-width:992px){
+	._d-ls1 {
+		letter-spacing: 1px;
+	}	
+}
+@media(max-width:991px){
+	._m-ls1 {
+		letter-spacing: 1px;
+	}	
+}
+
+._ls2 {
+	letter-spacing: 2px;
+}
+@media(min-width:992px){
+	._d-ls2 {
+		letter-spacing: 2px;
+	}	
+}
+@media(max-width:991px){
+	._m-ls2 {
+		letter-spacing: 2px;
+	}	
+}
+
+._ls3 {
+	letter-spacing: 3px;
+}
+@media(min-width:992px){
+	._d-ls3 {
+		letter-spacing: 3px;
+	}	
+}
+@media(max-width:991px){
+	._m-ls3 {
+		letter-spacing: 3px;
+	}	
+}
+
+._ls4 {
+	letter-spacing: 4px;
+}
+@media(min-width:992px){
+	._d-ls4 {
+		letter-spacing: 4px;
+	}	
+}
+@media(max-width:991px){
+	._m-ls4 {
+		letter-spacing: 4px;
+	}	
+}
+
+._ls5 {
+	letter-spacing: 5px;
+}
+@media(min-width:992px){
+	._d-ls5 {
+		letter-spacing: 5px;
+	}	
+}
+@media(max-width:991px){
+	._m-ls5 {
+		letter-spacing: 5px;
+	}	
+}
+
+._bn {
+	border: none !important;
+}
+@media(min-width:992px){
+	._d-bn {
+		border: none !important;
+	}
+}
+@media(max-width:991px){
+	._m-bn {
+		border: none !important;
+	}	
+}
+
+._br0 {
+	border-radius: 0 !important;
+}
+@media(min-width:992px){
+	._d-br0 {
+		border-radius: 0 !important;
+	}
+}
+@media(max-width:991px){
+	._m-br0 {
+		border-radius: 0 !important;
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+a:visited,
+a:focus,
+a:active,
+a:hover {
+	text-decoration: none;
+}
+
+._pr {
+	position: relative !important;
+}
+@media(min-width:992px){
+	._d-pr {
+		position: relative !important;
+	}
+}
+@media(max-width:991px){
+	._m-pr {
+		position: relative !important;
+	}
+}
+
+._z1 {
+	z-index: 1 !important;
+}
+
+._z2 {
+	z-index: 2 !important;
+}
+
+._z3 {
+	z-index: 3 !important;
+}
+
+.carousel-control {
+	text-shadow: none;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+	background: none;
+	white: 30px;
+}
+
+.carousel-control ._left, 
+.carousel-control ._right, 
+.carousel-control ._next, 
+.carousel-control ._prev {
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	display: inline-block;
+	margin-top: -10px;
+}
+
+.error {
+	font-weight: normal;
+	color: red;
+	font-size: 13px;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background: url('../../img/frontend/body-bg.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2000;
+	background-color: rgba(0,51,204,0.70);
+}
+
+.vimeo-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.vimeo-wrapper::before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*background-color: rgba(0,51,204,0.5);*/
+	background-color: rgba(0,0,0,0.75);
+}
+
+.vimeo-wrapper iframe {
+	width: 100vw;
+	height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+	min-height: 100vh;
+	min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

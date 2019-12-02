@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>October CMS - {{ this.page.title }}</title>
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{'assets/images/favicon/favicon.ico'|theme}}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{'assets/css/bootstrap.min.css'|theme}}">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{'assets/css/style.css'|theme}}">
+    <link rel="stylesheet" href="{{'assets/css/style-responsive.css'|theme}}">
+    <link rel="stylesheet" href="{{'assets/css/animate.min.css'|theme}}">
+    <link rel="stylesheet" href="{{'assets/css/vertical-rhythm.min.css'|theme}}">
+    <link rel="stylesheet" href="{{'assets/css/owl.carousel.css'|theme}}">
+    <link rel="stylesheet" href="{{'assets/css/magnific-popup.css'|theme}}">
+    {% styles %}
+
+</head>
+
+<body class="appear-animate">
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- Page Wrap -->
+    <div class="page" id="top">
+        <!-- Header -->
+        <header id="layout-header">
+            {% partial 'site/navbar' %}
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+    </div>
+
+
+    <!-- JS -->
+    <script type="text/javascript" src="{{'assets/javascript/jquery-1.11.2.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.easing.1.3.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/bootstrap.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/SmoothScroll.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.scrollTo.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.localScroll.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.viewport.mini.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.countTo.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.appear.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.sticky.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.parallax-1.1.3.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.fitvids.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/owl.carousel.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/isotope.pkgd.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/imagesloaded.pkgd.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.magnific-popup.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/gmap3.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/wow.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/masonry.pkgd.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.simple-text-rotator.min.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/all.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/contact-form.js'|theme}}"></script>
+    <script type="text/javascript" src="{{'assets/javascript/jquery.ajaxchimp.min.js'|theme}}"></script>
+    <!--[if lt IE 10]><script type="text/javascript" src="{{'assets/javascript/placeholder.js'|theme}}"></script><![endif]-->
+    {% framework extras %}
+    {% scripts %}
+
+</body>
+
+</html>
