@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>October CMS - {{ this.page.title }}</title>
+    <title>Lana - {{ this.page.title }}</title>
     <meta name="description" content="{{ this.page.meta_description }}">
     <meta name="title" content="{{ this.page.meta_title }}">
     <meta name="keywords" content="">
@@ -35,7 +35,7 @@
     <!-- Page Wrap -->
     <div class="page" id="top">
         <!-- Header -->
-        <header id="layout-header">
+        <header id="layout-header" {% if this.page.baseFileName != 'home' %} style="height: 75px;"{% endif %}>
             {% partial 'site/navbar' %}
         </header>
 

@@ -1,0 +1,73 @@
+<!-- Section -->
+<div class="container mt-30">
+    <div class="row">
+        <div class="col-md-4 mt-30">
+            <div class="mod-breadcrumbs font-alt align-left">
+                <a href="#">Home</a>&nbsp;/&nbsp;<span>Shop</span>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="page-section">
+    <div class="container relative">
+
+        <div class="row">
+            <!-- Content -->
+            <div class="col-sm-12">
+
+                <!-- Shop options -->
+                <div class="clearfix mb-40">
+
+                    <div class="left section-text mt-10">
+                        Showing 1–12 of 23 results
+                    </div>
+
+                    <div class="right">
+                        <form method="post" action="#" class="form">
+                            <select class="input-md round" style="background-color: #fff;">
+                                <option>Filtrar por:</option>
+                                <option>Preço mais baixo</option>
+                                <option>Preço mais alto</option>
+                                <option>Mais novo</option>
+                                <option>Mais antigo</option>
+                            </select>
+                        </form>
+                    </div>
+
+                </div>
+                <!-- End Shop options -->
+
+                <div class="row multi-columns-row">
+
+                    <!-- Shop Item -->
+                    {% partial 'site/product_card' %}
+                    {% partial 'site/product_card' %}
+                    {% partial 'site/product_card' %}
+                    {% partial 'site/product_card' %}
+                    {% partial 'site/product_card' %}
+                    {% partial 'site/product_card' %}
+                    <!-- End Shop Item -->
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href=""><i class="fa fa-angle-left"></i></a>
+                    <a href="" class="active">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a class="no-active">...</a>
+                    <a href="">9</a>
+                    <a href=""><i class="fa fa-angle-right"></i></a>
+                </div>
+                <!-- End Pagination -->
+
+            </div>
+            <!-- End Content -->
+
+
+        </div>
+
+    </div>
+</section>
+<!-- End Section -->

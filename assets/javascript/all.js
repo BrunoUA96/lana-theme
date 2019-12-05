@@ -502,6 +502,10 @@
  --------------------------------------------- */
 function initPageSliders(){
     (function($){
+        var arrowLeft = new Image;
+        var arrowRight = new Image;
+        arrowLeft.src = 'themes/lana/assets/images/arrow/arrow-left.png';
+        arrowRight.src = 'themes/lana/assets/images/arrow/arrow-right.png';
         "use strict";
         
         // Fullwidth slider
@@ -510,7 +514,7 @@ function initPageSliders(){
             singleItem: true,
             autoHeight: true,
             navigation: true,
-            navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
+            navigationText: [arrowLeft, arrowRight]
         });
         
         // Fullwidth slider
