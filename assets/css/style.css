@@ -425,7 +425,7 @@ video {
 body {
     color: #111;
     font-size: 14px;
-    font-family: "Open Sans", arial, sans-serif;
+    font-family: 'Playfair Display', serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
@@ -533,7 +533,6 @@ hr.black {
 
 .font-alt {
     font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
     letter-spacing: 0.2em;
 }
 
@@ -4277,7 +4276,6 @@ a.logo:hover {
     margin-bottom: 15px;
     font-size: 16px;
     font-weight: 400;
-    text-transform: uppercase;
     letter-spacing: 0.3em;
 }
 
