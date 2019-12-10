@@ -498,6 +498,10 @@ blockquote footer {
     letter-spacing: 2px;
 }
 
+#layout-footer {
+    background-color: #f7f7f7;
+}
+
 dl dt {
     margin-bottom: 5px;
 }
@@ -533,7 +537,8 @@ hr.black {
 
 .font-alt {
     font-family: 'Playfair Display', serif;
-    letter-spacing: 0.2em;
+    letter-spacing: 0;
+    font-size: 33px;
 }
 
 .serif {
@@ -1157,6 +1162,43 @@ a.btn-mod:focus {
 
 
 /* Home content */
+@media screen and (min-width: 1000px) {
+    .banner_home {
+        position: relative;
+    }
+
+    .banner_home .home-content {
+        position: absolute;
+        width: 50%;
+        right: 0;
+        text-align: left;
+        padding-left: 75px !important;
+    }
+
+    .banner_home .home-content .home-text {
+        padding-top: 75px;
+    }
+
+    .banner_home .hs-line-2 {
+        font-size: 33px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .banner_home .hs-line-8 {
+        font-size: 15px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .banner_home .btn-mod {
+        font-size: 15px !important;
+        background-color: transparent !important;
+        color: #fff !important;
+        text-align: left !important;
+        padding-left: 0 !important;
+        margin-top: 25px !important;
+    }
+}
+
 
 .home-content {
     position: relative;
@@ -7200,7 +7242,7 @@ section:hover .small-item-carousel .owl-next {
 
 /* Nav Bar */
 
-.nav_items_navbar{
+.nav_items_navbar {
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
