@@ -2,7 +2,7 @@
 <div class="home-section fullwidth-slider bg-dark" id="home">
     {% for slide in slideshow.slides %}
         <!-- Slide Item -->
-        <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-50" data-background="{{'assets/images/banner/section-bg-2.jpg'|theme}}">
+        <section class="home-section bg-scroll fixed-height-small bg-dark-alfa-50" data-background="{{slide.imagem.getPath()}}">
             <div class="js-height-parent banner_home container">
                 
                 <!-- Hero Content -->
