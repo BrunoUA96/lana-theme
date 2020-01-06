@@ -3,6 +3,18 @@ url = "/shop_cart"
 layout = "default"
 ==
 
+<style>
+    .container_shop_cart .table-striped tr th,
+    .container_shop_cart .table-striped tr td {
+        border: 0;
+    }
+
+    .container_shop_cart {
+        
+    }
+
+</style>
+
 <!-- Head Section -->
 <section class="small-section bg-gray-lighter">
     <div class="relative container align-left">
@@ -27,70 +39,12 @@ layout = "default"
 </div>
 <!-- Section -->
 <section class="page-section">
-    <div class="container">
+    <div class="container container_shop_cart">
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
 
-                <table class="table table-striped shopping-cart-table">
-                    <tr>
-                        <th class="hidden-xs">
-                            Photo
-                        </th>
-                        <th>
-                            Product
-                        </th>
-                        <th>
-                            Q-ty
-                        </th>
-                        <th>
-                            Total
-                        </th>
-                        <th>
-
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="hidden-xs">
-                            <a href=""><img src="{{'assets/images/teste/shop-prev-1.jpg'|theme}}" alt="" /></a>
-                        </td>
-                        <td>
-                            <a href="#" title="">Polo Shirt With Argyle Print</a>
-                        </td>
-                        <td>
-                            <form class="form">
-                                <input type="number" class="input-sm" style="width: 60px;" min="1" max="100"
-                                    value="1" />
-                            </form>
-                        </td>
-                        <td>
-                            $25.99
-                        </td>
-                        <td>
-                            <a href=""><i class="fa fa-times"></i> <span class="hidden-xs">Remove</span></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="hidden-xs">
-                            <a href=""><img src="{{'assets/images/teste/shop-prev-1.jpg'|theme}}" alt="" /></a>
-                        </td>
-                        <td>
-                            <a href="#" title="">Shirt With Mesh Sleeves</a>
-                        </td>
-                        <td>
-                            <form class="form">
-                                <input type="number" class="input-sm" style="width: 60px;" min="1" max="100"
-                                    value="1" />
-                            </form>
-                        </td>
-                        <td>
-                            $30.00
-                        </td>
-                        <td>
-                            <a href=""><i class="fa fa-times"></i> <span class="hidden-xs">Remove</span></a>
-                        </td>
-                    </tr>
-                </table>
+                {% partial 'shop_cart/table_products' %}
 
                 <hr />
 
@@ -159,7 +113,7 @@ layout = "default"
                         </div>
 
                         <div>
-                            <a href="" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>
+                            <a href="{{'checkout'|page}}" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>
                         </div>
 
                     </div>
