@@ -950,7 +950,7 @@ a.btn-mod:focus {
 .form input[type="color"],
 .form select {
     display: inline-block;
-    height: 27px;
+    height: 37px;
     vertical-align: middle;
     font-size: 11px;
     font-weight: 400;
@@ -1173,10 +1173,19 @@ a.btn-mod:focus {
         right: 0;
         text-align: left;
         padding-left: 75px !important;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
     }
 
     .banner_home .home-content .home-text {
-        padding-top: 75px;
+        padding-top: 25px;
+        background: rgba(34, 34, 34, 0.35);
+        padding-left: 30px;
+        padding-bottom: 25px;
+        padding-right: 30px;
+        height: auto !important;
     }
 
     .banner_home .hs-line-2 {
@@ -1196,6 +1205,7 @@ a.btn-mod:focus {
         text-align: left !important;
         padding-left: 0 !important;
         margin-top: 25px !important;
+        text-decoration: underline;
     }
 }
 
@@ -2869,7 +2879,7 @@ a.logo:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(34, 34, 34, .5);
+    /* background: rgba(34, 34, 34, .5); */
 }
 
 .bg-dark-alfa-70:before,
