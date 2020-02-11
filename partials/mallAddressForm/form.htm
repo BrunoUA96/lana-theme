@@ -1,0 +1,76 @@
+{##}
+{% if type %}
+    {% set type = (type ~ '_') %}
+{% endif %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="{{ type }}company">{{ 'Empresa'|_ }}</label>
+            <input class="form-control" id="{{ type }}company" type="text" value="{{ address.company }}" name="{{ type }}company">
+            <div data-validate-for="{{ type }}company"></div>
+        </div>        
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="{{ type }}address_name">{{ 'Nome'|_ }}</label>
+            <input class="form-control" id="{{ type }}address_name" type="text"
+                value="{{ address.name }}"
+                name="{{ type }}address_name">
+            <div data-validate-for="{{ type }}address_name"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="{{type}}nif">{{'NIF'|_}}</label>
+            <input class="form-control" id="{{type}}nif" type="text"
+                  value="{{address.nif}}"
+                  name="{{type}}nif">
+            <div data-validate-for="{{type}}nif"></div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label for="{{type}}telefone">{{'Telefone'|_}}</label>
+            <input class="form-control" id="{{type}}telefone" type="text"
+                  value="{{address.telefone}}"
+                  name="{{type}}telefone">
+            <div data-validate-for="{{type}}telefone"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="{{ type }}lines">{{ 'Morada'|_ }}</label>
+            <textarea class="form-control" id="{{ type }}lines" type="text" name="{{ type }}lines">{{ address.lines }}</textarea>
+            <div data-validate-for="{{ type }}lines"></div>
+        </div>    
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="{{ type }}zip">{{ 'Código Postal'|_ }}</label>
+            <input class="form-control" id="{{ type }}zip" name="{{ type }}zip" type="text"
+                value="{{ address.zip }}">
+            <div data-validate-for="{{ type }}zip"></div>
+        </div>    
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label for="{{ type }}city">{{ 'Localidade'|_ }}</label>
+            <input class="form-control" id="{{ type }}city" name="{{ type }}city" type="text"
+                value="{{ address.city }}">
+            <div data-validate-for="{{ type }}city"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    {% partial __SELF__ ~ '::countrystate' type=type countryId=address.country_id stateId=address.state_id %}
+</div>

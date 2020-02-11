@@ -1,0 +1,75 @@
+{##}
+
+{% set isActiveMethod = paymentMethodSelector.activeMethod.id == method.id %}
+<div class="mall-payment-method__entry js-mall-select-payment-method
+     {{ isActiveMethod ? 'mall-payment-method__entry--active' : '' }}"
+     data-id="{{ method.id }}">
+
+    <div class="row">
+        <div class="col-12 checkbox_metodo_box">    
+            <!-- Pay Pal Card -->
+            <div class="mall-payment-method__selector">
+                <button class="radio_btn_checkout {% if isActiveMethod %} radio_btn_checkout__checked {% endif %}"
+                        data-attach-loading
+                        data-request="{{paymentMethodSelector}}::onChangeMethod"
+                        data-request-success="$.publish('mall.cart.paymentMethodChanged', data)"
+                        data-request-data="id: '{{ method.id }}'">
+                    <div class="check_img">
+                        {% if method.logo %}
+                            <img class="paypal-logo" src="{{ method.logo.thumb(120, 'auto') }}" alt=""/>
+                        {% endif %}
+                    </div>
+                </button>
+            </div>
+            <div class="mall-payment-method__text">
+                <div>
+                    {# NOME DO METODO #}
+                    <div class="mall-payment-method__heading">
+                        <div class="mall-payment-method__name">
+                            <p>
+                                {{ method.name }}
+                            </p>
+                        </div>
+                    </div>
+        
+                    {# METODO DE PAGAMENTO SELECIONADO #}
+                    {% if isActiveMethod %}
+                        {# INSTRUÇÕES DE PAGAMENTO #}
+                        <div class="mall-payment-method__instructions">
+                            {{ method.renderInstructions(paymentMethodSelector.order, paymentMethodSelector.cart) | raw }}
+                        </div>
+                        <div class="mall-payment-method__toggle"
+                                style="{% if not isActiveMethod %}display: none{% endif %}">
+                            <div class="mall-payment-method__data">
+                                {% if method.payment_provider %}
+                                    {% set path = 'paymentMethodSelector/gateways/' ~ (method.payment_provider) %}
+                                    {% if partial(path) %}
+                                        {% partial path %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            {% set customerMethods = paymentMethodSelector.customerMethods[method.id] %}
+                            {% if customerMethods %}
+                                <div class="mall-payment-method__customer-methods">
+                                    {% partial 'paymentMethodSelector/customermethods' methods=customerMethods %}
+                                </div>
+                            {% endif %}
+                            {% if method.code == 'netcaixa' %}
+                            {% else %}
+                                <div class="mall-payment-method__submit carrinho_total">
+                                    {% set label = paymentMethodSelector.order
+                                        ? 'Pagar'|_
+                                        : 'Confirmar'|_ %}
+                                    <button class="js-btn-pagar btn btn_comprar mt-4" style="width: 100%" type="submit" data-attach-loading>
+                                        {{ label | trans }}
+                                    </button>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+==
+{##}
+{% set url = (productPage | page({slug: product.data.slug, variant: product.variant.hashId})) %}
+{% set image = product.variant ? product.variant.image : product.data.image %}
+
+<tr class="product_row">
+    <td data-label="Produto">
+        <table class="carrinho_produto">
+            <tr>
+                <th>
+                    {% if image %}
+                    <a href="{{ url }}">
+                        <img src="{{ image.thumb(100, auto) }}" alt="">
+                    </a>
+                    {% endif %}
+                </th>
+                <th>              
+                    <span class="name_produto">
+                        {{ product.variant.name }}
+                    </span>
+<!--                     <span class="tamanho">
+    Tamanho: -- property not available in component ??? --
+</span>
+<span class="cor">
+    Cor: -- property not available in component ??? --
+</span> -->
+                </th>
+            </tr>
+        </table>
+    </td>
+    <td data-label="Preço">
+        {% if product.variant %}
+            <p class="preco">
+                {{ product.variant.properties_description | raw }}
+            </p>
+        {% else %}
+            <p class="preco">
+               Único
+            </p>
+        {% endif %}
+        </td>
+    <td data-label="Preço">
+        <p class="preco">
+            {{ product.price() }}
+        </p>
+    </td>
+    <td data-label="Quantidade">
+        <select class="custom-select js-mall-quantity" data-id="{{ product.hashId }}" name="quantity">
+            {% set min = product.data.quantity_min | default(mallCart.defaultMinQuantity) %}
+            {% set max = product.data.quantity_max | default(mallCart.defaultMaxQuantity) %}
+            {% for i in range(min, max) %}
+                <option value="{{ i }}" {{ i == product.quantity ? 'selected="selected"' : '' }}>{{ i }}</option>
+            {% endfor %}
+        </select>
+    </td>
+    <td class="position-relative" data-label="Total">
+        <p class="preco">
+            {{ product.totalPostTaxes | money }}
+        </p>
+        
+        
+        <div>
+            <a href="javascript:;"
+               class="js-mall-remove-product"
+               data-id="{{ product.hashId }}"
+            >
+                <span class="cancel_row">
+                
+                </span>  
+            </a>
+        </div>
+        
+
+    </td>
+</tr>

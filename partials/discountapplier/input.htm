@@ -1,0 +1,20 @@
+<form class="form" data-request="onApplyDiscount"
+      data-request-validate
+      data-request-flash
+      data-request-success="$.publish('mall.discount.applied')">
+    <div class="mall-form-control">
+        {% if false %}
+            <label for="code">{{ 'offline.mall::frontend.discount.label' | trans }}</label>
+        {% endif %}
+
+        <input name="code" style="width: 250px;" type="text" id="code" placeholder="Coupon code" class="input-sm mb-xs-10">
+
+        &nbsp;
+
+        <button type="submit" class="btn btn-mod btn-round btn-gray btn-small mb-xs-10">
+            Apply Coupon
+        </button>
+
+        <div data-validate-for="code"></div>
+    </div>
+</form>

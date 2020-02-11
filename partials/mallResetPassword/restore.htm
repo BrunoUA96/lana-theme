@@ -1,0 +1,21 @@
+{##}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 mb-30">
+        <h2 class="font-alt">
+            Forgot your password?
+        </h2>
+        
+        <form class="form"
+        data-request="{{ __SELF__ }}::onRestorePassword"
+        data-request-update="'{{ __SELF__ }}::reset': '#partialUserResetForm'">
+        <div class="form-group">
+            <label for="userRestoreEmail">Email</label>
+            <input name="email" type="email" class="form-control" id="userRestoreEmail" placeholder="Enter your email to validate your account">
+        </div>
+    
+        <button type="submit" class="btn btn-mod btn-b btn-medium col-sm-12 mb-xs-10 mt-10">Recover Password</button>
+    </form>
+    </div>
+</div>
+
+

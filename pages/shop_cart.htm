@@ -3,14 +3,11 @@ url = "/shop_cart"
 layout = "default"
 ==
 
+
 <style>
     .container_shop_cart .table-striped tr th,
     .container_shop_cart .table-striped tr td {
         border: 0;
-    }
-
-    .container_shop_cart {
-        
     }
 
 </style>
@@ -44,78 +41,69 @@ layout = "default"
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
 
-                {% partial 'shop_cart/table_products' %}
-
-                <hr />
-
-                <div class="row">
-                    <div class="col-sm-8">
-                        <form action="#" class="form">
-                            <input placeholder="Coupon code" class="input-sm mb-xs-10" style="width: 250px;" type="text"
-                                pattern=".{3,100}" required />
-                            &nbsp;<button type="submit" class="btn btn-mod btn-round btn-gray btn-small mb-xs-10">Apply
-                                Coupon</button>
-                        </form>
-                    </div>
-                    <div class="col-sm-4 text align-right">
-
-                        <div>
-                            <a href="" class="btn btn-mod btn-gray btn-round btn-small">Update Cart</a>
-                        </div>
-
-                    </div>
-                </div>
+                <!-- mallCart -->
+                {% component 'mallCart' %}
 
                 <hr class="mb-60" />
 
                 <div class="row">
                     <div class="col-sm-6">
 
-                        <h3 class="small-title font-alt">Calculate Shipping</h3>
-
-                        <form action="#" class="form">
-
-                            <div class="mb-10">
-                                <select class="input-md form-control">
-                                    <option>Select Country</option>
-                                    <option>France</option>
-                                    <option>Ukraine</option>
-                                    <option>USA</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-10">
-                                <input placeholder="State" class="input-md form-control" type="text"
-                                    pattern=".{3,100}" />
-                            </div>
-
-                            <div class="mb-10">
-                                <input placeholder="Postcode / Zip" class="input-md form-control" type="text"
-                                    pattern=".{3,100}" />
-                            </div>
-
-                        </form>
-
                     </div>
                     <div class="col-sm-6 text align-right pt-10">
 
 
+
+                        {% set totals=cart.totals %}
+                        {% set discounts=cart.totals.appliedDiscounts %}
+                        {% set shipping=cart.totals.shippingTotal %}
+                        {% set payment=cart.totals.paymentTotal %}
+                        {% set totals=cart.totals %}
+                        {% set taxes=cart.totals.taxes %}
+                    
+                        {# SUB TOTAL #}
+
                         <div>
-                            Cart subtotal: <strong>$45.95</strong>
+                            Cart subtotal: 
+                            <strong>
+                                {{ totals.productPostTaxes | money }}
+                            </strong>
                         </div>
 
+                        {# DISCOUNTS #}
+
+                        {% for entry in discounts %}
                         <div class="mb-10">
-                            Shipping: <strong>$30.00</strong>
+                            {{ entry.discount.name }}
+                            {% if entry.discount.code %}
+                                ({{ entry.discount.code }})
+                            {% endif %} 
+                            <strong>
+                                {{ entry.savings | money }}
+                            </strong>
+                        </div>
+                        {% endfor %}
+
+                        {# SHIPPING #}
+                        <div class="mb-10">
+                            Shipping {{ shipping.method.name }}: 
+                            <strong>
+                                {{ shipping.totalPostTaxes | money }}
+                            </strong>
                         </div>
 
+                        {# TOTAL #}
                         <div class="lead mt-0 mb-30">
-                            Order Total: <strong>$75.99</strong>
+                            Order Total: 
+                            <strong>
+                                {{ cart.totals.totalPostTaxes | money }}
+                            </strong>
                         </div>
-
+                        {% if not step %}
                         <div>
                             <a href="{{'checkout'|page}}" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>
                         </div>
-
+                        {% endif %}
                     </div>
                 </div>
 

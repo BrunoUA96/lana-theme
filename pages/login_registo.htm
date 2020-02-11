@@ -1,12 +1,18 @@
 title = "Log-in - Sign-up"
 url = "/login"
 layout = "default"
+
+[session]
+security = "guest"
+redirect = "home"
+
+[signUp mallSignUp]
 ==
 <style>
     @media screen and (min-width: 992px) {
-        .container_login .col-md-6 {
+        /* .container_login .col-md-6 {
             display: flex;
-        }
+        } */
 
         .container_login form {
             max-width: 450px;
@@ -22,13 +28,5 @@ layout = "default"
 
 </style>
 
-<div class="container container_login mb-50">
-    <div class="row">
-        <div class="col-md-6">
-            {% partial 'registo/login' %}
-        </div>
-        <div class="col-md-6">
-            {% partial 'registo/registo' %}
-        </div>
-    </div>
-</div>
+
+{% partial 'registo/container' %}

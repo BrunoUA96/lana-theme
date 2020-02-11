@@ -1,0 +1,78 @@
+==
+{##}
+{% for address in __SELF__.addresses %}
+<div class="row listagem_moradas">
+    <div class="col-6">
+     {% if address.company %}
+        <p>
+            <span>
+                {{'Empresa'|_}}:
+            </span>
+            {{ address.company }}
+        </p>
+     {% endif %}
+    <p>
+        <span>
+            {{'Nome'|_}}:
+        </span>
+        {{ address.name }}
+    </p>
+    {% if address.nif %}
+        <p>
+            <span>
+                {{'NIF'|_}}:
+            </span>
+            {{ address.nif }}
+        </p>
+    {% endif %}
+    {% if address.telefone %}
+        <p>
+            <span>
+                {{'Telefone'|_}}:
+            </span>
+            {{ address.telefone }}
+        </p>
+    {% endif %}
+
+    </div>
+    <div class="col-6">
+        <div class="row">
+
+        </div>
+        <p>
+            <span>
+                {{'Morada'|_}}:
+            </span>
+            {{ address.lines | nl2br }}
+        </p>
+        <p>
+            <span>
+                {{'Código Postal'|_}}:
+            </span>
+            {{ address.zip }} {{ address.city }}
+        </p>
+        <p>
+            <span>
+                {{'País'|_}}:
+            </span>
+            {{ address.country.name }}
+        </p>
+    </div>
+    <div class="col-6 offset-6 text-right mb-4">
+        <a href="{{ __SELF__.addressPage | page({address: address.hashId, redirect: 'account'}) }}"
+            class="btn btn_a">
+            {{ 'Editar'|_ }}
+        </a>
+        {% if __SELF__.addresses.count > 1 %}
+            <a  href="javascript:;" 
+                data-request="onDelete" 
+                data-request-data="id: '{{ address.hashId }}'"
+                data-request-confirm="{{ 'Tem a certeza' | _ }}"
+                class="btn btn_a btn_a--rev">
+                    {{ 'Apagar' | trans }}
+            </a>
+        {% endif %}
+    </div>
+</div>
+<hr>
+{% endfor %}

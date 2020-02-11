@@ -1,0 +1,27 @@
+title = "Account"
+url = "/account/orders"
+layout = "default"
+
+[session]
+security = "all"
+
+[myAccount mallMyAccount]
+page = "orders"
+
+[ordersList mallOrdersList]
+
+==
+
+<h1>
+    Account Orders
+</h1>
+
+<div class="container">
+    <div class="row">
+        {% partial 'account/nav_profile' %}
+        {% component 'mallOrdersList' %}
+    </div>
+</div>
+
+
+

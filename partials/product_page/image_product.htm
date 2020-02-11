@@ -1,0 +1,25 @@
+<div class="col-md-4 mb-md-30 col-md-offset-1">
+                
+    <div class="post-prev-img">
+        <a href="{{ item.image.path }}" class="lightbox-gallery-3 mfp-image">
+            <img src="{{ item.image.path }}" alt="{{ item.name }}" />
+        </a>
+        {% if false %}
+            <div class="intro-label">
+                <span class="label label-danger bg-red">Sale</span>
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="row">
+        {% for image in item.images %}
+            <div class="col-xs-3 post-prev-img">
+                <a href="{{ image.path }}" class="lightbox-gallery-3 mfp-image">
+                    <img src="{{ image.path }}" />
+                </a>
+            </div>
+        {% endfor %}
+        
+    </div>
+    
+</div>

@@ -1,0 +1,9 @@
+<div class="mall-payment-method-selector">
+    {% partial 'paymentMethodSelector/selector' %}
+</div>
+
+{% partial 'paymentMethodSelector/scripts' %}
+
+{% if dataLayer %}
+    {% partial 'paymentMethodSelector/datalayer' %}
+{% endif %}

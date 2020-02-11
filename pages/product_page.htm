@@ -1,8 +1,18 @@
 title = "Produto"
-url = "/produto"
+url = "/produto/:slug/:variant?"
 layout = "default"
+
+[product mallProduct]
+product = ":slug"
+variant = ":slug"
+redirectOnPropertyChange = 1
+currentVariantReviewsOnly = 0
+
+[wishlistButton mallWishlistButton]
 ==
 
 {% partial 'product_page/product' %}
 
+{% if false %}
 {% partial 'product_page/related_products' %}
+{% endif %}

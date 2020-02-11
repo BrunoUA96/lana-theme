@@ -1,0 +1,15 @@
+{##}
+<p>{{ 'Escolha o Método de Pagamento'|_ }}</p>
+    {# {% partial 'paymentMethodSelector/gateways/sibs'%} #}
+
+<form id="mall-payment-form" data-request-validate>
+</form>
+    <div class="mall-payment-method">
+        <div class="row">
+            {% for method in paymentMethodSelector.methods %}
+            <div class="col-md-4">
+                {% partial 'paymentMethodSelector/method' method=method %}            
+            </div>
+            {% endfor %}        
+        </div>
+    </div>

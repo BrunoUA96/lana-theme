@@ -1,0 +1,17 @@
+{##}
+<div class="col-md-8 dasboard_box">
+    <div class="row mb-4">
+        <h1>
+            {{'As Minhas Moradas'|_}}
+        </h1>    
+    </div>
+
+    <div class="row mb-4">
+        {% partial __SELF__ ~ '::actions' %}        
+    </div>
+    <hr>
+    <!-- Listagem Moradas -->
+    <div class="mall-address-list__list">
+        {% partial __SELF__ ~ '::list' %}
+    </div>
+</div>

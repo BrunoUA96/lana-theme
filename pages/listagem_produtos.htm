@@ -1,6 +1,35 @@
 title = "Produtos"
-url = "/listagem"
+url = "/listagem/:slug*"
 layout = "default"
+
+[products mallProducts]
+category = ":slug"
+filterComponent = "mallProductsFilter"
+setPageTitle = 0
+includeVariants = 0
+includeChildren = 1
+perPage = 12
+paginate = 1
+
+[productsFilter mallProductsFilter]
+category = ":slug"
+showPriceFilter = 0
+showBrandFilter = 0
+showOnSaleFilter = 0
+includeSliderAssets = 0
+==
+<?php
+function onEnd(){
+    $categoria_selecionada = $this['category'];
+    $this['categoria_selecionada'] = isset($categoria_selecionada->parent_id) ? $categoria_selecionada->parent : $categoria_selecionada;
+    $categoria_selecionada = $this['categoria_selecionada'];
+    
+    $this['categorias'] = OFFLINE\Mall\Models\Category::whereNull('parent_id')->
+                                                        where('id','!=',$categoria_selecionada->id)->
+                                                        orderBy('nest_left')->
+                                                        get();
+}
+?>
 ==
 
 {% partial 'listagem_produtos/header' %}

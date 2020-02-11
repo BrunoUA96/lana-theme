@@ -1,0 +1,64 @@
+==
+{##}
+
+<div class="col-md-8 dasboard_box">
+    <div class="row mb-4">
+        <h1>
+            {{'Your profile'|_}}
+        </h1>
+    </div>
+<form class="edit_form" data-request="onSubmit" data-request-validate data-request-flash>
+    {# EMAIL #}
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="email">{{'Email'|_}}</label>
+                <input class="form-control" id="email" type="email" placeholder="email@email.com" name="email" value="{{user.email }}">
+                <div data-validate-for="email"></div>
+            </div>        
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="firstname">{{'Primeiro Nome *' }}</label>
+                <input class="form-control" id="firstname" type="text" name="firstname" value="{{ user.customer.firstname }}">
+                <div data-validate-for="firstname"></div>
+            </div>
+                </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="lastname">{{ 'Apelido' }}</label>
+                <input class="form-control" id="lastname" type="text" name="lastname" value="{{ user.customer.lastname }}">
+                <div data-validate-for="lastname"></div>
+            </div>        
+        </div>
+    </div>
+    {% if user.customer.is_guest %}
+        <div class="mall-callout">
+            {{ 'offline.mall::frontend.guest_upgrade.callout' | trans }}
+        </div>
+    {% endif %}
+    <div class="row mb-4">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="password">{{ 'Password'|_ }}</label>
+                <input class="form-control" id="password" type="password" name="password">
+                <div data-validate-for="password"></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="password_repeat">{{ 'Confirmar Password'|_ }}</label>
+                <input class="form-control" id="password_repeat" type="password" name="password_repeat">
+                <div data-validate-for="password_repeat"></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group text-right">
+        <button  class="btn mt-4" type="submit" data-attach-loading>
+            {{'GRAVAR'|_}}
+        </button>
+    </div>
+</form>
+</div>

@@ -1,3 +1,10 @@
+[products mallProducts]
+filterComponent = "productsFilter"
+setPageTitle = 0
+includeVariants = 0
+includeChildren = 1
+paginate = 0
+==
 <style>
     .container_category {
         margin-top: 95px;
@@ -11,6 +18,21 @@
         margin-bottom: 70px;
         display: block;
         padding: 0 310px;
+    }
+
+    .post-prev-img a {
+        position: relative;
+        display: inline-block;
+    }
+
+    span.titulo_catecoria {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        background-color: #ffffffbf;
+        padding: 5px 30px;
     }
 
 </style>
@@ -39,8 +61,12 @@
                         <!-- Item -->
                         <li class="col-md-4">
                             <div class="post-prev-img mb-0">
-                                <a href="{{'listagem_produtos'|page}}" class="work-ext-link"><img
-                                        src="{{'assets/images/teste/shop-prev-1.jpg'|theme}}" alt=""></a>
+                                <a href="{{'listagem_produtos'|page({slug: 'home'})}}" class="work-ext-link">
+                                    <img src="{{'assets/images/teste/home.jpg'|theme}}" alt="">
+                                    <span class="titulo_catecoria">
+                                        Home
+                                    </span>
+                                </a>
                             </div>
                         </li>
                         <!-- End Item -->
@@ -48,8 +74,12 @@
                         <!-- Item -->
                         <li class="col-md-4">
                             <div class="post-prev-img mb-0">
-                                <a href="{{'listagem_produtos'|page}}" class="work-ext-link"><img
-                                        src="{{'assets/images/teste/shop-prev-1.jpg'|theme}}" alt=""></a>
+                                <a href="{{'listagem_produtos'|page({slug: 'clothes'})}}" class="work-ext-link">
+                                    <img src="{{'assets/images/teste/clothes.jpg'|theme}}" alt="">
+                                    <span class="titulo_catecoria">
+                                        Clothes
+                                    </span>
+                                </a>
                             </div>
                         </li>
                         <!-- End Item -->
@@ -57,8 +87,12 @@
                         <!-- Item -->
                         <li class="col-md-4">
                             <div class="post-prev-img mb-0">
-                                <a href="{{'listagem_produtos'|page}}" class="work-ext-link"><img
-                                        src="{{'assets/images/teste/shop-prev-1.jpg'|theme}}" alt=""></a>
+                                <a href="{{'listagem_produtos'|page({slug: 'accessories'})}}" class="work-ext-link">
+                                    <img src="{{'assets/images/teste/accessories.jpg'|theme}}" alt="">
+                                    <span class="titulo_catecoria">
+                                        Accessories
+                                    </span>
+                                </a>
                             </div>
                         </li>
                         <!-- End Item -->

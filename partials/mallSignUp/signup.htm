@@ -1,0 +1,98 @@
+==
+{##}
+
+<form data-request="onSignup" class="form" data-request-validate data-request-flash>
+
+    <div class="form-row">
+        <div class="mb-30">
+            <label class="mb-10" for="signup_email">{{ 'offline.mall::frontend.form.email' | trans }}</label>
+            <input class="form-control" id="signup_email" type="email" placeholder="email@email.com" name="email">
+            <div data-validate-for="email"></div>
+        </div>     
+    </div>
+    
+    <div class="form-row row">
+        <div class="col-md-6 mb-30 pl-0">
+            <label class="mb-10" for="firstname">{{ 'Nome'|_ }}</label>
+            <input class="form-control" id="firstname" type="text" name="firstname">
+            <div data-validate-for="firstname"></div>
+        </div>
+        
+        <div class="col-md-6 mb-30">
+            <label class="mb-10" for="lastname">{{ 'Apelido'|_ }}</label>
+            <input class="form-control" id="lastname" type="text" name="lastname">
+            <div data-validate-for="lastname"></div>
+        </div>
+        
+    </div>
+    {% if this.page.baseFileName != 'login_registo' %}
+        <div class="form-row">
+            <div class="mall-signup__guest-option">
+                <label class="mall-checkbox">
+                    <input class="js-mall-toggle-guest-signup mb-10"
+                        type="checkbox" name="as_guest"
+                        value="1">
+                    <span>
+                        {{ 'Não pretento criar uma conta'|_ }}
+                    </span>
+                </label>
+            </div>
+        </div>
+    {% endif %}
+
+
+    <div class="form-row row mall-signup__password-inputs">
+        <div class="col-md-6 mb-30">
+            <label class="mb-10" for="signup_password">{{ 'Password'|_ }}</label>
+            <input class="form-control" id="signup_password" type="password" name="password">
+            <div data-validate-for="password"></div>
+        </div>
+        <div class="col-md-6 mb-30">
+            <label class="mb-10" for="password_repeat">{{ 'Confirmar Password'|_ }}</label>
+            <input class="form-control" id="password_repeat" type="password" name="password_repeat">
+            <div data-validate-for="password_repeat"></div>
+        </div>
+    </div>
+    
+
+    <!-- address -->
+    <div class="mall-signup__billing-address">
+        <h1 class="mall-signup__subheading">
+            {{'Morada'|_}}
+        </h1>
+
+        {% partial __SELF__ ~ '::addressform' type='billing' %}
+
+        <div class="mall-signup__shipping-address-option mt-3">
+            <label class="mall-checkbox mb-10">
+                <input class="js-mall-toggle-shipping-address"
+                       type="checkbox"
+                       name="use_different_shipping" value="1">
+                <span>
+                    {{'Usar endereço diferente para envio'|_}}
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <div class="mall-shipping-address" style="display: none">
+        <h3 class="mall-signup__subheading">
+            {{ 'Morada'|_ }}
+        </h3>
+        {% partial __SELF__ ~ '::addressform' type='shipping' %}
+    </div>    
+    
+    
+    
+    {% partial __SELF__ ~ '::terms' %}
+
+
+
+    
+    
+    <button type="submit" class="btn btn-mod btn-b btn-medium col-sm-12 mb-xs-10">
+        {{'Create'|_}}
+    </button>
+
+
+</form>

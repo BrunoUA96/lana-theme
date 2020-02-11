@@ -1,0 +1,52 @@
+description = "products_item"
+==
+
+
+<style>
+    .fa-heart {
+        font-size: 20px;
+    }
+</style>
+
+<div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+
+    <div class="post-prev-img">
+        
+        <a href="{{'product_page'|page({slug: item.slug, variant: item.variantId})}}">
+            {% partial __SELF__ ~ '::image' image=item.image %}
+        </a>
+        <!--
+            <div class="intro-label">
+                <span class="label label-danger bg-red">Sale</span>
+            </div>
+        -->
+        
+    </div>
+
+    <div class="post-prev-title font-alt align-center">
+        <a href="{{'product_page'|page({slug: item.slug, variant: item.variantId})}}">
+            {{ item.name }}
+        </a>
+    </div>
+
+    <div class="post-prev-text align-center">
+        <!--
+            <del>$150.00</del>
+            &nbsp;
+        -->
+
+        {% set price = item.price() %}
+        <strong>{{ price.string | raw }}</strong>
+    </div>
+
+    <div class="post-prev-more align-center">
+        <a href="" class="btn">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+        </a>
+        <a href="#" class="btn btn-mod btn-gray btn-round">
+            <i class="fa fa-shopping-cart"></i> 
+            Add to cart
+        </a>
+    </div>
+
+</div>

@@ -1,3 +1,5 @@
+==
+{##}
 <!-- Navigation panel -->
 <nav class="main-nav white stick-fixed">
     <div class="full-wrapper relative clearfix">
@@ -107,21 +109,30 @@
             <ul class="clearlist">
                 <!-- Log in -->
                 <li>
-                    <a href="{{'login_registo'|page}}" class="mn-has-sub">Log in</a>
+                    {% if not user %}
+                        <a href="{{'login_registo'|page}}" class="mn-has-sub">Log in</a>
+                    {% else %}
+                        <a href="{{'account_orders'|page}}" class="mn-has-sub">Hello {{user.name}}</a>
+                    {% endif %}
 
                 </li>
                 <!-- End Log in -->
 
                 <!-- Wishlist -->
-
-                <li>
-                    <a href="#" class="mn-has-sub">Wishlist</a>
-                </li>
+                {% if user %}
+                    <li>
+                        <a href="{{'wishlists'|page}}" class="mn-has-sub">Wishlist</a>
+                    </li>
+                {% endif %}
                 <!-- End Wishlist -->
 
                 <!-- Cart -->
                 <li>
-                    <a href="{{'shop_cart'|page}}"><i class="fa fa-shopping-cart"></i> Cart(0)</a>
+                    {% set cartCount = cart.products.count %}
+                    <a href="{{'shop_cart'|page}}">
+                        <i class="fa fa-shopping-cart"></i>
+                         Cart({% if cartCount %}{{ cartCount }}{% else %}0{% endif %})
+                    </a>
                 </li>
                 <!-- End Cart -->
 

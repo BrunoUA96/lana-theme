@@ -1,0 +1,51 @@
+;;
+==
+use Cms\Classes\Page;
+
+use JuntaDigital\DigitalPaymentsGateway\Classes\HelperRequest;
+use JuntaDigital\DigitalPaymentsGateway\Models\Settings;
+
+
+function onEnd(){
+    $cart = $this['cart'];
+    $userId = Settings::get('user_id');
+    $password = Settings::get('password');
+    $entityId = Settings::get('entity_id');
+    $currency = 'EUR';
+    $paymentType = 'PA.CP';
+    $amount = number_format($cart->totals->totalPostTaxes()/100,2);
+
+    // $merchantTransactionId = $order_id;
+
+    $url = Settings::get('api_url').'v1/checkouts';
+    $data = "authentication.userId=".$userId.
+            "&authentication.password=".$password.
+            "&authentication.entityId=".$entityId.
+            "&amount=".$amount.
+            "&currency=".$currency.
+            "&paymentType=".$paymentType.
+            "&testMode=EXTERNAL&customParameters[SIBS_ENV]=QLY";
+
+    $auth =  'Authorization:Bearer '.Settings::get('bearer');
+
+    $responseData = HelperRequest::curlRequest($url,$data,$auth);
+    session()->put('mall.payment_method.data', encrypt(json_encode($responseData)));
+
+    if($responseData->result->code === '000.200.100'){
+        $this['checkoutId'] = $responseData->id;
+        $this['shopperResultUrl'] = Page::url('checkout',['step'=>'confirm']);
+    }
+}
+==
+{##}
+{% if checkoutId %}
+<script>
+    var wpwlOptions = {
+        locale: "pt",
+        paymentTarget: '_top' ,
+        style:"card"
+    }
+</script>
+<script src = "https://test.onlinepayments.pt/v1/paymentWidgets.js?checkoutId={{checkoutId}}"></script>
+<form action="{{shopperResultUrl}}" class="paymentWidgets" data-brands="mbway"></form> 
+{% endif %}

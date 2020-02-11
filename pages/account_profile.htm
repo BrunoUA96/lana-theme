@@ -1,0 +1,22 @@
+title = "Account"
+url = "/account/profile"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login_registo"
+
+[myAccount mallMyAccount]
+page = "profile"
+
+==
+{# PROFILE #}
+
+<div class="container">
+    <div class="row">
+        {% partial 'account/nav_profile' %}
+
+        {% component 'mallMyAccount'%}
+    </div>
+</div>

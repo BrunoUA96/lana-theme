@@ -1,0 +1,26 @@
+==
+{##}
+{% for item in props %}
+
+    {% set propertyValue = __SELF__.variantPropertyValues[item.property.id] %}
+    {% if item.property.id == __SELF__.product.group_by_property_id %}
+        {# Preset the property used to group the variants. #}
+        {% partial 'mallProductProperties/default' item=item propertyValue=propertyValue %}
+    {% else %}
+            {% if item.property.type == 'color' %}
+                {% partial 'mallProductProperties/color' item=item propertyValue=propertyValue %}
+            {% endif %}
+
+    {% endif %}
+{% endfor %}
+
+{# {% for item in props %}
+    {% set propertyValue = __SELF__.variantPropertyValues[item.property.id] %}
+    {% if item.property.id != __SELF__.product.group_by_property_id %}
+
+            {% if item.property.type != 'color' %}
+                {% partial 'mallProductProperties/default' item=item propertyValue=propertyValue %}
+            {% endif %}
+
+    {% endif %}
+{% endfor %} #}

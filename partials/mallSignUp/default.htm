@@ -1,0 +1,25 @@
+==
+<div class="container container_login mb-50">
+    <div class="row">
+       
+        <div class="col-md-6 form">
+            <!-- Form Login -->
+            <h2 class="font-alt">
+                Login
+            </h2>
+            {% partial __SELF__ ~ '::signin' %}
+    
+        </div>
+        
+        <div class="col-md-6">
+            <!-- Form Registo -->
+            <h2 class="font-alt">
+                Create account
+            </h2>
+            {% partial __SELF__ ~ '::signup' %}
+        </div>
+    </div>
+</div>
+
+
+{% partial __SELF__ ~ '::scripts' %}

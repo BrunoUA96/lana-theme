@@ -1,0 +1,13 @@
+==
+<div class="mall-cart__wrapper">
+    <div class="mall-table-overflow" style="overflow-y: auto">
+        <table class="table table-striped shopping-cart-table">
+
+            {% partial __SELF__ ~ '::table_header' %}
+
+            {% for product in cart.products %}
+                {% partial __SELF__ ~ '::table_entry' product=product %}
+            {% endfor %}
+        </table>
+    </div>
+</div>

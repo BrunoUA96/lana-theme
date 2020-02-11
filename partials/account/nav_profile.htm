@@ -1,0 +1,36 @@
+<style>
+    .nav_profile {
+        margin-top: 20px;
+    }
+
+    .nav_profile a {
+        display: block;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 17px;
+        padding: 9px;
+    }
+
+    .nav_profile .active {
+        background-color: #999;
+        color: #fff;
+    }
+
+</style>
+
+
+<div class="col-md-4 nav_profile">
+    <a class="{% if this.page.BaseFileName == 'account_profile' %} active {% endif %}" href="{{'account_profile'|page}}">
+        Account
+    </a>
+    <a class="{% if this.page.BaseFileName == 'account_orders' %}active{% endif %}" href="{{'account_orders'|page}}">
+        Orders
+    </a>
+    <a class="{% if this.page.BaseFileName == 'account_addresses' %}active{% endif %}" href="{{'account_addresses'|page}}">
+        Addresses
+    </a>
+    <a href="#" data-request="onLogout" data-request-data="redirect: '/'">
+        Logout
+    </a>
+</div>

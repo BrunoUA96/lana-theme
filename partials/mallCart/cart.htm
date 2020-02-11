@@ -1,0 +1,6 @@
+==
+{% if cart.products.count < 1 %}
+    {% partial __SELF__ ~ '::empty' %}
+{% else %}
+    {% partial __SELF__ ~ '::table_base' %}
+{% endif %}

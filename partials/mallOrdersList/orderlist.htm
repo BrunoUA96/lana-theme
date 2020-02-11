@@ -1,0 +1,66 @@
+{##}
+<div class="mall-table-overflow">
+    <h1>
+        {{'As Minhas Encomendas'|_}}
+    </h1>
+    <div class="row mb-4">
+        <div class="col-12 pt-5">
+            <!-- Tabela Encomendas -->
+            <table class="mall-orders-list__table mall-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Ordem</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    {% if order.isPaid %}
+
+                        <tr class="mall-orders-list__order {{ order.isPaid ? '' : 'mall-orders-list__order--unpaid' }}">
+                            <td data-label="ordem">
+                                <p>
+                                    {{ order.order_number }}
+                                </p>
+                            </td>
+                            <td data-label="data">
+                                <p>
+                                    {% partial __SELF__ ~ '::created_at' order=order %}
+                                </p>
+                            </td>
+                            <td data-label="tipo">
+                                <p>
+                                    {{ order.order_state_label }}
+                                </p>
+                            </td>
+
+                            <td data-label="total">
+                                <p>
+                                    {{ order.totalPostTaxes() | raw }}
+                                </p>
+                            </td>
+                            <td data-label="estado">
+                                <p>
+                                    {% if order.isPaid %}
+                                        Pago
+                                    {% else %}
+                                        <span class="view">
+                                            Ver
+                                        </span>
+                                    {% endif %}
+                                </p>
+
+                            </td>
+                        </tr>
+                    {% partial __SELF__ ~ '::details' order=order %}
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
