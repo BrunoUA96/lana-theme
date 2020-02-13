@@ -1,11 +1,44 @@
 ==
-{% if __SELF__.paginate %}
+<style>
+    .pagination {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+    }
 
+    .pagination li {
+        margin: 0 2px;
+    }
+
+    .pagination li span {
+
+        display: inline-block; 
+        min-width: 30px; 
+        -moz-box-sizing: border-box; 
+        box-sizing: border-box; 
+        padding: 7px 14px; 
+        border: 1px solid #eaeaea; 
+        color: #999; 
+        font-size: 13px; 
+        font-weight: 400; 
+        text-transform: uppercase; 
+        text-align: center; 
+        text-decoration: none; 
+        -webkit-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
+        -moz-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
+        -o-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
+        -ms-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
+        transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
+    }
+
+    .pagination li.active span {
+        cursor: pointer;
+        border-color: #bbb;
+    color: #444;
+    }
+</style>
+{% if __SELF__.paginate %}
     <nav id="nav-paginate" aria-label="Page navigation example">
-<!--         <ul class="pagination justify-content-end">
-    <li class="page-item"><a class="page-link" href="#">test</a></li>
-</ul> -->
-    {{ items | raw }}
+        {{ items | raw }}
     </nav>
-    
 {% endif %}

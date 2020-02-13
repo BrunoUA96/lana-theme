@@ -6,21 +6,21 @@
      {% if address.company %}
         <p>
             <span>
-                {{'Empresa'|_}}:
+                Company:
             </span>
             {{ address.company }}
         </p>
      {% endif %}
     <p>
         <span>
-            {{'Nome'|_}}:
+            Name:
         </span>
         {{ address.name }}
     </p>
     {% if address.nif %}
         <p>
             <span>
-                {{'NIF'|_}}:
+                VAT Number:
             </span>
             {{ address.nif }}
         </p>
@@ -28,7 +28,7 @@
     {% if address.telefone %}
         <p>
             <span>
-                {{'Telefone'|_}}:
+                Telephone:
             </span>
             {{ address.telefone }}
         </p>
@@ -41,33 +41,33 @@
         </div>
         <p>
             <span>
-                {{'Morada'|_}}:
+                Address:
             </span>
             {{ address.lines | nl2br }}
         </p>
         <p>
             <span>
-                {{'Código Postal'|_}}:
+                Zip Code:
             </span>
             {{ address.zip }} {{ address.city }}
         </p>
         <p>
             <span>
-                {{'País'|_}}:
+                Country:
             </span>
             {{ address.country.name }}
         </p>
     </div>
     <div class="col-6 offset-6 text-right mb-4">
         <a href="{{ __SELF__.addressPage | page({address: address.hashId, redirect: 'account'}) }}"
-            class="btn btn_a">
-            {{ 'Editar'|_ }}
+            class="btn btn_a btn-mod btn-round">
+            Edit
         </a>
         {% if __SELF__.addresses.count > 1 %}
             <a href="javascript:;" data-request="onDelete" data-request-data="id: '{{ address.hashId }}'"
                 data-request-confirm="{{ 'Tem a certeza' | _ }}"
-                class="btn btn_a btn_a--rev">
-                    {{ 'Apagar' | trans }}
+                class="btn btn_a btn_a--rev btn-mod btn-round">
+                    {{ 'Delete' | trans }}
             </a>
         {% endif %}
     </div>

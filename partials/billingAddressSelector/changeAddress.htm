@@ -5,7 +5,7 @@
       data-request-validate
       data-request-success="$.publish('mall.address.update')">
     <div class="form-group">
-        <label for="mall_address_id">{{ 'Selecionar Endereço' |_ }}</label>
+        <label for="mall_address_id">Use this address</label>
         <select class="form-control" id="mall_address_id" name="id">
             {% for address in addresses %}
                 <option value="{{ address.id }}" {{ address.id == activeAddress ? 'selected' : '' }}>
@@ -13,18 +13,19 @@
                 </option>
             {% endfor %}
             <option value="new">
-                {{ 'Novo Endereço' |_ }}
+                New Adress
             </option>
         </select>
         <div data-validate-for="id"></div>
     </div>
-        <button class="btn border-0 js-change-address-apply" type="submit">
-            {{ 'Aplicar' |_  }}
-        </button>
+        
     <div class="mall-form-actions">
+        <button class="btn border-0 js-change-address-apply btn-mod" type="submit">
+            Apply
+        </button>
         <a href="{{ __SELF__.addressPage | page({address: address.hashId, redirect: 'checkout'}) }}"
            class="mall-btn mall-btn--link mall-btn--sm">
-            {{ 'Editar' |_ }}
+           Edit
         </a>
     </div>
 </form>

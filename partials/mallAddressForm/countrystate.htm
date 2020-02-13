@@ -10,10 +10,10 @@
 {% set id = type ~ 'country_id' %}
 <div class="col-6">
     <div class="form-group">
-        <label for="{{ id }}">{{ 'País'|_ }}</label>
+        <label for="{{ id }}">County</label>
         {{ form_select_country(id, countryId, {
             id: id,
-            emptyOption: ('Escolha o País'),
+            emptyOption: ('County'),
             class: 'form-control',
             'data-request': 'onInit',
             'data-request-update': {

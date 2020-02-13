@@ -23,15 +23,9 @@
                     </div>
 
                     <div class="right">
-                        <form method="post" action="#" class="form">
-                            <select class="input-md round" style="background-color: #fff;">
-                                <option>Filtrar por:</option>
-                                <option>Preço mais baixo</option>
-                                <option>Preço mais alto</option>
-                                <option>Mais novo</option>
-                                <option>Mais antigo</option>
-                            </select>
-                        </form>
+                        <div method="post" action="#" class="form">
+                            {% component 'mallProductsFilter' %}
+                        </div>
                     </div>
 
                 </div>
@@ -47,15 +41,7 @@
                 </div>
 
                 <!-- Pagination -->
-                <div class="pagination">
-                    <a href=""><i class="fa fa-angle-left"></i></a>
-                    <a href="" class="active">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
-                    <a class="no-active">...</a>
-                    <a href="">9</a>
-                    <a href=""><i class="fa fa-angle-right"></i></a>
-                </div>
+                    {% partial 'listagem_produtos/paginacao' %}
                 <!-- End Pagination -->
 
             </div>

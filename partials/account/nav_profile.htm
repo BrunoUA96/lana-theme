@@ -13,7 +13,7 @@
     }
 
     .nav_profile .active {
-        background-color: #999;
+        background-color: rgba(34, 34, 34, .9);
         color: #fff;
     }
 
@@ -21,13 +21,13 @@
 
 
 <div class="col-md-4 nav_profile">
-    <a class="{% if this.page.BaseFileName == 'account_profile' %} active {% endif %}" href="{{'account_profile'|page}}">
+    <a class="{% if this.param.page == 'profile' %} active {% endif %}" href="{{'account_profile'|page({page: 'profile'})}}">
         Account
     </a>
-    <a class="{% if this.page.BaseFileName == 'account_orders' %}active{% endif %}" href="{{'account_orders'|page}}">
+    <a class="{% if this.param.page == 'orders' %}active{% endif %}" href="{{'account_profile'|page({page: 'orders'})}}">
         Orders
     </a>
-    <a class="{% if this.page.BaseFileName == 'account_addresses' %}active{% endif %}" href="{{'account_addresses'|page}}">
+    <a class="{% if this.param.page == 'addresses' %}active{% endif %}" href="{{'account_profile'|page({page: 'addresses'})}}">
         Addresses
     </a>
     <a href="#" data-request="onLogout" data-request-data="redirect: '/'">

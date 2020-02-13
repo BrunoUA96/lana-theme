@@ -1,4 +1,5 @@
 ==
+
 {##}
 {% set url = (productPage | page({slug: product.data.slug, variant: product.variant.hashId})) %}
 {% set image = product.variant ? product.variant.image : product.data.image %}
@@ -35,7 +36,7 @@
             </p>
         {% else %}
             <p class="preco">
-               Único
+                Unique
             </p>
         {% endif %}
         </td>
@@ -59,13 +60,13 @@
         </p>
         
         
-        <div>
+        <div class="close_b_cart">
             <a href="javascript:;"
                class="js-mall-remove-product"
                data-id="{{ product.hashId }}"
             >
                 <span class="cancel_row">
-                
+                    <i class="fa fa-times" aria-hidden="true"></i>
                 </span>  
             </a>
         </div>

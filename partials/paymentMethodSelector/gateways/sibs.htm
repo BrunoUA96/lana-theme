@@ -11,10 +11,12 @@ function onEnd(){
     $userId = Settings::get('user_id');
     $password = Settings::get('password');
     $entityId = Settings::get('entity_id');
+    $is_prod = Settings::get('producao');
     $currency = 'EUR';
     $paymentType = 'PA.CP';
     $amount = number_format($cart->totals->totalPostTaxes()/100,2);
 
+    $this['is_prod'] = $is_prod;
     // $merchantTransactionId = $order_id;
 
     $url = Settings::get('api_url').'v1/checkouts';
@@ -23,8 +25,12 @@ function onEnd(){
             "&authentication.entityId=".$entityId.
             "&amount=".$amount.
             "&currency=".$currency.
-            "&paymentType=".$paymentType.
-            "&testMode=EXTERNAL&customParameters[SIBS_ENV]=QLY";
+            "&paymentType=".$paymentType;
+    if(!$is_prod){
+            
+        $data .="&testMode=EXTERNAL&customParameters[SIBS_ENV]=QLY";
+
+    }
 
     $auth =  'Authorization:Bearer '.Settings::get('bearer');
 
@@ -39,13 +45,18 @@ function onEnd(){
 ==
 {##}
 {% if checkoutId %}
-<script>
-    var wpwlOptions = {
-        locale: "pt",
-        paymentTarget: '_top' ,
-        style:"card"
-    }
-</script>
-<script src = "https://test.onlinepayments.pt/v1/paymentWidgets.js?checkoutId={{checkoutId}}"></script>
-<form action="{{shopperResultUrl}}" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form> 
+    <script>
+        var wpwlOptions = {
+            locale: "pt",
+            paymentTarget: '_top',
+            style:"card"
+        }
+    </script>
+    {% if is_prod %}
+        <script src = "https://onlinepayments.pt/v1/paymentWidgets.js?checkoutId={{checkoutId}}"></script>
+    {% else %}
+        <script src = "https://test.onlinepayments.pt/v1/paymentWidgets.js?checkoutId={{checkoutId}}"></script>
+    {% endif %}
+
+    <form action="{{shopperResultUrl}}" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form> 
 {% endif %}

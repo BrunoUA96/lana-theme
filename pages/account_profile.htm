@@ -1,5 +1,5 @@
 title = "Account"
-url = "/account/profile"
+url = "/account/:page?"
 layout = "default"
 is_hidden = 0
 
@@ -8,7 +8,7 @@ security = "user"
 redirect = "login_registo"
 
 [myAccount mallMyAccount]
-page = "profile"
+page = "{{ :page }}"
 
 ==
 {# PROFILE #}

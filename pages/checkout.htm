@@ -1,7 +1,11 @@
 title = "Checkout"
-url = "/checkout"
+url = "/checkout/:step?"
 layout = "default"
 
+[signUp mallSignUp]
+
+[checkout mallCheckout]
+step = "{{ :step }}"
 ==
 <style>
     .checkout_cart_totals_box span {
@@ -25,15 +29,50 @@ layout = "default"
         color: slategray;
     }
 
-    .checkout_cart_totals_box_pay .col-md-12 {
-        border: 1px solid #ccc;
-        border-bottom: 0;
-        padding: 25px;
-        text-transform: uppercase;
+    .mall-payment-method__description p {
+        margin: 0;
     }
 
-    .checkout_cart_totals_box_pay .col-md-12:last-child {
-        border-bottom: 1px solid #ccc;
+    .checkout_cart_totals_box_pay .col-md-12 .mall-payment-method__entry,
+    .checkout_cart_totals_box_pay .col-md-12 .mall-shipping-method__entry{
+        border: 1px solid #ccc;
+        padding: 25px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .mall-payment-method__logo,
+    .mall-shipping-method__logo{
+        min-width: 120px;
+        margin-right: 20px;
+    }
+
+    .mall-payment-method__text,
+    .mall-shipping-method__text {
+        -ms-flex: 1 1 0%;
+        flex: 1 1 0%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        opacity: .5;
+    }
+
+    .mall-payment-method__name,
+    .mall-shipping-method__name {
+        font-size: 20px;
+    }
+
+    .checkout_cart_totals_box_pay .col-md-12 .mall-payment-method__entry.mall-payment-method__entry--active,
+    .checkout_cart_totals_box_pay .col-md-12 .mall-shipping-method__entry.mall-shipping-method__entry--active {
+        border-color: rgba(34, 34, 34, .9);
+    }
+
+    .checkout_cart_totals_box_pay .col-md-12 .mall-payment-method__entry.mall-payment-method__entry--active .mall-payment-method__text,
+    .checkout_cart_totals_box_pay .col-md-12 .mall-shipping-method__entry.mall-shipping-method__entry--active .mall-shipping-method__text {
+        opacity: 1;
     }
 
     .checkout_cart_totals_box_pay .col-md-12 p {
@@ -43,236 +82,24 @@ layout = "default"
         font-size: 13px;
     }
 
-    .label_box {
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+    .mall-cart-summary__action a,
+    .mall-address__actions a{
+        font-weight: 400;
+        color: rgba(255, 255, 255, .85);
+        background: rgba(0, 0, 0, .7);
+        text-decoration: none;
+        outline: none;
+        border-color: transparent;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding: 4px 9px;
+        display: inline-block;
     }
-
-    /* Hide the browser's default radio button */
-    .label_box input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-    }
-
-    /* Create a custom radio button */
-    .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 20px;
-        width: 20px;
-        background-color: #fff;
-        border-radius: 50%;
-        border: 1px solid #ccc;
-    }
-
-    .label_box.label_box_checkbox .checkmark {
-        border-radius: 0;
-    }
-
-    /* On mouse-over, add a grey background color */
-    .label_box:hover input~.checkmark {
-        background-color: #fff;
-    }
-
-    /* When the radio button is checked, add a blue background */
-    .label_box input:checked~.checkmark {
-        background-color: #fff;
-    }
-
-    /* Create the indicator (the dot/circle - hidden when not checked) */
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-
-    /* Show the indicator (dot/circle) when checked */
-    .label_box input:checked~.checkmark:after {
-        display: block;
-    }
-
-    /* Style the indicator (dot/circle) */
-    .label_box .checkmark:after {
-        top: 4px;
-        left: 4px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #10B765;
-    }
-
-    .label_box.label_box_checkbox .checkmark:after {
-        left: 7px;
-        top: 3px;
-        width: 5px;
-        height: 10px;
-        border: solid #10B765;
-        border-width: 0 2px 2px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        border-radius: 0;
-        background-color: transparent;
-    }
-
 </style>
 
-<div class="container container_login mb-50">
-    <div class="row">
-        <h2 class="font-alt text-center">
-            Checkout
-        </h2>
-    </div>
-    <div class="row">
-        <form method="post" action="#" id="form" role="form" class="form">
-            <div class="col-md-6">
-                <h5 class="mb-30 mt-0" style="height: 22px;">
-                    Billing Address
-                </h5>
-                <div class="mb-30">
-                    <input type="text" class="form-control input-md" placeholder="United Kingdom">
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-30">
-                            <input type="text" class="form-control input-md" placeholder="First name">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-30">
-                            <input type="text" class="form-control input-md" placeholder="Last name">
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-30">
-                    <input type="text" class="form-control input-md" placeholder="Company">
-                </div>
-                <div class="mb-30">
-                    <input type="text" class="form-control input-md" placeholder="Address">
-                </div>
-                <div class="mb-30">
-                    <input type="text" class="form-control input-md" placeholder="City / Town">
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-30">
-                            <input type="text" class="form-control input-md" placeholder="State / Country">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-30">
-                            <input type="number" class="form-control input-md" placeholder="Phone">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label class="checkbox-inline mb-30 label_box label_box_checkbox">
-                    Ship to different address?
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div class="mb-30">
-                    <textarea class="form-control" style="resize: none; width: 100%;" rows="7"
-                        placeholder="Message"></textarea>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <span>
-                Cart totals
-            </span>
-            <hr style="width: 100%;">
-            <div class="row checkout_cart_totals_box">
-                <div class="col-md-6">
-                    <span>
-                        subtotal
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <span>
-                        $400.00
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <span>
-                        Shipping and handling
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <span>
-                        Free Shipping
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <span>
-                        Order Total
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <span>
-                        $400.00
-                    </span>
-                </div>
-                <hr style="width: 100%;">
-                <div class="col-md-6">
-                    <span class="checkout_cart_totals_box_total">
-                        Total
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <span class="checkout_cart_totals_box_total_price">
-                        $400.00
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row checkout_cart_totals_box_pay">
-        <div class="col-md-12">
-            <label class="radio-inline label_box">
-                Direct bank transfer
-                <p>
-                    Make your payment directly intro our bank account. Please use your Order ID as the payment
-                    reference. Your order won't be shipped until the funds have leared in our account.
-                </p>
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+{% if not user %}
+    {% component 'mallSignUp' %}
+{% else %}
+    {% component 'mallCheckout' %}
+{% endif %}
 
-                <span class="checkmark"></span>
-            </label>
-        </div>
-        <div class="col-md-12">
-            <label class="radio-inline label_box">
-                Cheque Payment
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-
-                <span class="checkmark"></span>
-            </label>
-        </div>
-        <div class="col-md-12">
-            <label class="radio-inline label_box">
-                PayPal
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-
-                <span class="checkmark"></span>
-            </label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 mt-50" style="padding-left: 0;">
-            <a href="#" class="btn btn-mod btn-round btn-large">
-                Proceed to Checkout
-            </a>
-        </div>
-    </div>
-</div>

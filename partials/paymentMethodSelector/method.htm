@@ -3,34 +3,24 @@
 {% set isActiveMethod = paymentMethodSelector.activeMethod.id == method.id %}
 <div class="mall-payment-method__entry js-mall-select-payment-method
      {{ isActiveMethod ? 'mall-payment-method__entry--active' : '' }}"
-     data-id="{{ method.id }}">
-
-    <div class="row">
-        <div class="col-12 checkbox_metodo_box">    
-            <!-- Pay Pal Card -->
-            <div class="mall-payment-method__selector">
-                <button class="radio_btn_checkout {% if isActiveMethod %} radio_btn_checkout__checked {% endif %}"
-                        data-attach-loading
-                        data-request="{{paymentMethodSelector}}::onChangeMethod"
-                        data-request-success="$.publish('mall.cart.paymentMethodChanged', data)"
-                        data-request-data="id: '{{ method.id }}'">
-                    <div class="check_img">
-                        {% if method.logo %}
-                            <img class="paypal-logo" src="{{ method.logo.thumb(120, 'auto') }}" alt=""/>
-                        {% endif %}
-                    </div>
-                </button>
+     data-id="{{ method.id }}">  
+           
+            <div class="mall-payment-method__logo">
+                {% if method.logo %}
+                    <img class="mall-payment-method__logo" src="{{ method.logo.thumb(120, 'auto') }}" alt=""/>
+                {% endif %}
             </div>
             <div class="mall-payment-method__text">
                 <div>
                     {# NOME DO METODO #}
                     <div class="mall-payment-method__heading">
-                        <div class="mall-payment-method__name">
-                            <p>
-                                {{ method.name }}
-                            </p>
-                        </div>
+                        <div class="mall-payment-method__name">{{ method.name }}</div>
                     </div>
+                    {% if method.description %}
+                        <div class="mall-payment-method__description">
+                            {{ method.description | raw }}
+                        </div>
+                    {% endif %}
         
                     {# METODO DE PAGAMENTO SELECIONADO #}
                     {% if isActiveMethod %}
@@ -54,13 +44,16 @@
                                     {% partial 'paymentMethodSelector/customermethods' methods=customerMethods %}
                                 </div>
                             {% endif %}
-                            {% if method.code == 'netcaixa' %}
+                            {% if   method.code == 'netcaixa' or 
+                                    method.code == 'mbway' or
+                                    method.code == 'sibs'
+                            %}
                             {% else %}
                                 <div class="mall-payment-method__submit carrinho_total">
                                     {% set label = paymentMethodSelector.order
-                                        ? 'Pagar'|_
-                                        : 'Confirmar'|_ %}
-                                    <button class="js-btn-pagar btn btn_comprar mt-4" style="width: 100%" type="submit" data-attach-loading>
+                                        ? 'Pay'|_
+                                        : 'Proceed with this method'|_ %}
+                                    <button class="js-btn-pagar btn btn_comprar mt-4 btn-mod" style="margin-top: 26px;" type="submit" data-attach-loading>
                                         {{ label | trans }}
                                     </button>
                                 </div>
@@ -70,6 +63,15 @@
                 </div>
             </div>
             
-        </div>
+    <div class="mall-payment-method__selector">
+        {% if not isActiveMethod %}
+            <button class="mall-payment-method__select-button btn-mod"
+                    data-attach-loading
+                    data-request="{{ __SELF__ }}::onChangeMethod"
+                    data-request-success="$.publish('mall.cart.paymentMethodChanged', data)"
+                    data-request-data="id: '{{ method.id }}'">
+                {{ 'offline.mall::frontend.payment_method.button_label' | trans }}
+            </button>
+        {% endif %}
     </div>
 </div>

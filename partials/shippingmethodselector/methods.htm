@@ -1,0 +1,12 @@
+<p class="text-center">{{ 'offline.mall::frontend.shipping_method.choose' | trans }}</p>
+<form data-request-validate data-request="{{ __SELF__ }}::onSubmit">
+    <div class="mall-shipping-method">
+        <div class="row checkout_cart_totals_box_pay">
+            {% for method in __SELF__.methods %}
+                <div class="col-md-12">
+                    {% partial __SELF__ ~ '::method' method=method %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</form>

@@ -1,3 +1,17 @@
+{% put styles %}
+<style>
+    .position-relative {
+        position: relative;
+    }
+    .position-relative .close_b_cart {
+        position: absolute;
+        top: 50%;
+        right: 13px;
+        transform: translateY(-50%);
+    }
+</style>
+{% endput %}
+
 <div class="mall-cart">
     {% partial __SELF__ ~ '::cart' %}
 </div>
