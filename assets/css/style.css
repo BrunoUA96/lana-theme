@@ -1878,12 +1878,13 @@ a.logo:hover {
     top: 0;
     border-left: 1px solid rgba(255, 255, 255, .07);
 }
-
+/*
 .inner-nav>ul>li:last-child .mn-sub,
 .inner-nav li .mn-sub.to-left {
     left: auto;
     right: 0;
 }
+*/
 
 .inner-nav li:last-child .mn-sub li ul,
 .inner-nav li .mn-sub li ul.to-left {
