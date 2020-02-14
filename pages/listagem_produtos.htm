@@ -17,6 +17,9 @@ showPriceFilter = 0
 showBrandFilter = 0
 showOnSaleFilter = 0
 includeSliderAssets = 0
+
+[slideshows]
+sstheme = "lana"
 ==
 <?php
 function onEnd(){
@@ -32,6 +35,6 @@ function onEnd(){
 ?>
 ==
 
-{% partial 'listagem_produtos/header' %}
+{% partial 'site/banner' %}
 
 {% partial 'listagem_produtos/listagem' %}

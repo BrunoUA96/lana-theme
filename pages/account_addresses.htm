@@ -12,9 +12,12 @@ address = "{{ :address }}"
 redirect = "{{ :redirect }}"
 set = "{{ :set }}"
 
-
+[slideshows]
+sstheme = "lana"
 ==
 
+
+{% partial 'site/banner' %}
 <div class="container">
     <div class="row">
         {% partial 'account/nav_profile' %}

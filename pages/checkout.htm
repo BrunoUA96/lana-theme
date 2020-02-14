@@ -6,6 +6,9 @@ layout = "default"
 
 [checkout mallCheckout]
 step = "{{ :step }}"
+
+[slideshows]
+sstheme = "lana"
 ==
 <style>
     .checkout_cart_totals_box span {
@@ -96,6 +99,9 @@ step = "{{ :step }}"
         display: inline-block;
     }
 </style>
+
+
+{% partial 'site/banner' %}
 
 {% if not user %}
     {% component 'mallSignUp' %}

@@ -1,0 +1,11 @@
+{% for slide in slideshow.slides %}
+    <section class="small-section bg-gray-lighter" data-background="{{slide.imagem.getPath()}}">
+        <div class="relative container align-left">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="hs-line-11 font-alt mb-0">{{slide.titulo}}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
