@@ -3,28 +3,28 @@
         <div class="mall-order-details">
             <div class="mall-order-details__row row mx-0">
                 <div class="mall-order-details__detail col-md-6">
-                    <h5>{{'Estado do pedido'|_}}</h5>
+                    <h5>{{'Order status'|_}}</h5>
                     <p>
                         {{ order.order_state_label }}
                     </p>
                 </div>
                 <div class="mall-order-details__detail col-md-6">
-                    <h5>{{'Estado do pagamento'|_}}</h5>
+                    <h5>{{'Payment status'|_}}</h5>
                     {% if order.payment_state_label == 'Payment pending' %}
                         <p>
-                            Pendente
+                            {{'Pending'|_}}
                         </p>
                     {% elseif order.payment_state_label == 'Payment failed' %}
                         <p>
-                            Falhado
+                            {{'Failed'|_}}
                         </p>
                     {% elseif order.payment_state_label == 'Payment refunded' %}
                         <p>
-                            Devolvido
+                            {{'Returned'|_}}
                         </p>
                     {% elseif order.payment_state_label == 'Paid' %}
                         <p>
-                            Pago
+                            {{'Paid'|_}}
                         </p>
                     {% endif %}
                     {% if not order.isPaid %}
@@ -37,20 +37,21 @@
                         {% endif %}
                         <br/>
                         <a href="{{ __SELF__.paymentLink }}?order={{ order.hashId }}">
-                            {{'Pagar este pedido agora'|_}}
+                            {{'Pay this order now'|_}}
                         </a>
                     {% endif %}
+                    
                 </div>
             </div>
             <div class="mall-order-details__row row mx-0">
                 <div class="mall-order-details__detail col-md-6">
-                    <h5>{{'Método de envio'|_}}</h5>
+                    <h5>{{'Shipping method'|_}}</h5>
                     <p>
                         {{ order.shipping.method.name }}
                     </p>
                 </div>
                 <div class="mall-order-details__detail col-md-6">
-                    <h5>{{'Método de Pagamento'|_}}</h5>
+                    <h5>{{'Payment method'|_}}</h5>
                     <p>
                         {{ order.payment_method.name }}
                     </p>
@@ -77,11 +78,11 @@
             {% endif %}
             <div class="mall-order-details__row row mx-0">
                 <div class="mall-order-details__detail col-md-6">
-                    <h5>{{'Dados de Envio'|_}}</h5>
+                    <h5>{{'Shipping Info'|_}}</h5>
                     {% partial __SELF__ ~ '::address' address=order.shipping_address %}
                 </div>
                 <div class="mall-order-details__detail col-md-6">
-                    <h5>{{'Dados de Faturação'|_}}</h5>
+                    <h5>{{'Info Billing'|_}}</h5>
                     {% partial __SELF__ ~ '::address' address=order.billing_address %}
                 </div>
             </div>

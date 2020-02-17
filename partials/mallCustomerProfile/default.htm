@@ -1,34 +1,34 @@
 ==
 {##}
 
-<div class="col-md-8 dasboard_box">
+<div class="col-md-8 col-md-offset-1 dasboard_box">
     <div class="row mb-4">
         <h1>
             {{'Your profile'|_}}
         </h1>
     </div>
-<form class="edit_form" data-request="onSubmit" data-request-validate data-request-flash>
+<form class="edit_form form" data-request="onSubmit" data-request-validate data-request-flash>
     {# EMAIL #}
-    <div class="row mb-4">
-        <div class="col-12">
+    <div class="row mb-30">
+        <div class="col-md-12">
             <div class="form-group">
-                <label for="email">{{'Email'|_}}</label>
+                <label for="email">{{'E-mail'|_}}</label>
                 <input class="form-control" id="email" type="email" placeholder="email@email.com" name="email" value="{{user.email }}">
                 <div data-validate-for="email"></div>
             </div>        
         </div>
     </div>
-    <div class="row mb-4">
-        <div class="col-6">
+    <div class="row">
+        <div class="col-md-6 mb-30">
             <div class="form-group">
-                <label for="firstname">{{'Primeiro Nome *' }}</label>
+                <label for="firstname">{{'First Name*' }}</label>
                 <input class="form-control" id="firstname" type="text" name="firstname" value="{{ user.customer.firstname }}">
                 <div data-validate-for="firstname"></div>
             </div>
-                </div>
-        <div class="col-6">
+        </div>
+        <div class="col-md-6 mb-30">
             <div class="form-group">
-                <label for="lastname">{{ 'Apelido' }}</label>
+                <label for="lastname">{{ 'Last Name' }}</label>
                 <input class="form-control" id="lastname" type="text" name="lastname" value="{{ user.customer.lastname }}">
                 <div data-validate-for="lastname"></div>
             </div>        
@@ -39,17 +39,17 @@
             {{ 'offline.mall::frontend.guest_upgrade.callout' | trans }}
         </div>
     {% endif %}
-    <div class="row mb-4">
-        <div class="col-6">
+    <div class="row mb-30">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="password">{{ 'Password'|_ }}</label>
                 <input class="form-control" id="password" type="password" name="password">
                 <div data-validate-for="password"></div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="form-group">
-                <label for="password_repeat">{{ 'Confirmar Password'|_ }}</label>
+                <label for="password_repeat">{{ 'Confirm Password'|_ }}</label>
                 <input class="form-control" id="password_repeat" type="password" name="password_repeat">
                 <div data-validate-for="password_repeat"></div>
             </div>

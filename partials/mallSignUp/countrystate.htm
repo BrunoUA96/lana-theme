@@ -9,12 +9,13 @@
 
 {% set id = type ~ '_country_id' %}
 <div class="mall-form-control">
-    <label for="{{ id }}">{{'País'|_}}</label>
+    <label for="{{ id }}">{{'Country'|_}}</label>
     <div class="row">
-        <div class="col-md-12 mb-10">
+        <div class="col-md-12 mb-10 form">
             {{ form_select_country(id, countryId, {
                 id: id,
-                emptyOption: ('Selecionar' | trans ),
+                emptyOption: ('Select' | trans ),
+                'style': 'background-color: #fff; width: 100%',
                 'data-request': 'onInit',
                 'data-request-data' : ("type: '" ~ type ~ "'"),
                 'data-request-update': {
@@ -31,11 +32,12 @@
     {% set id = type ~ '_state_id' %}
     <div class="row">
         <div class="col-md-12 mb-30">
-            <div class="mall-form-control">
+            <div class="mall-form-control form">
                 <label for="{{ id }}"></label>
                 {{ form_select_state(id, countryId, stateId, {
                     id: id,
-                    emptyOption: ('Selecionar' | trans ),
+                    'style': 'background-color: #fff; width: 100%',
+                    emptyOption: ('Select' | trans ),
                 }) }}
                 <div data-validate-for="{{ id }}"></div>
             </div>

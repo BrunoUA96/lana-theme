@@ -13,32 +13,37 @@
     
     <div class="form-row row">
         <div class="col-md-6 mb-30 pl-0">
-            <label class="mb-10" for="firstname">{{ 'Nome'|_ }}</label>
+            <label class="mb-10" for="firstname">{{ 'First name'|_ }}</label>
             <input class="form-control" id="firstname" type="text" name="firstname">
             <div data-validate-for="firstname"></div>
         </div>
         
         <div class="col-md-6 mb-30">
-            <label class="mb-10" for="lastname">{{ 'Apelido'|_ }}</label>
+            <label class="mb-10" for="lastname">{{ 'Last name'|_ }}</label>
             <input class="form-control" id="lastname" type="text" name="lastname">
             <div data-validate-for="lastname"></div>
         </div>
         
     </div>
-    {% if this.page.baseFileName != 'login_registo' %}
-        <div class="form-row">
-            <div class="mall-signup__guest-option">
-                <label class="mall-checkbox">
-                    <input class="js-mall-toggle-guest-signup mb-10"
-                        type="checkbox" name="as_guest"
-                        value="1">
-                    <span>
-                        {{ 'Não pretento criar uma conta'|_ }}
-                    </span>
-                </label>
+
+    {##}
+    {% if false %}
+        {% if this.page.baseFileName != 'login_registo' %}
+            <div class="form-row">
+                <div class="mall-signup__guest-option">
+                    <label class="mall-checkbox">
+                        <input class="js-mall-toggle-guest-signup mb-10"
+                            type="checkbox" name="as_guest"
+                            value="1">
+                        <span>
+                            {{ 'I don\'\t want to create an account'|_ }}
+                        </span>
+                    </label>
+                </div>
             </div>
-        </div>
+        {% endif %}
     {% endif %}
+
 
 
     <div class="form-row row mall-signup__password-inputs">
@@ -48,7 +53,7 @@
             <div data-validate-for="password"></div>
         </div>
         <div class="col-md-6 mb-30">
-            <label class="mb-10" for="password_repeat">{{ 'Confirmar Password'|_ }}</label>
+            <label class="mb-10" for="password_repeat">{{ 'Confirm Password'|_ }}</label>
             <input class="form-control" id="password_repeat" type="password" name="password_repeat">
             <div data-validate-for="password_repeat"></div>
         </div>
@@ -58,7 +63,7 @@
     <!-- address -->
     <div class="mall-signup__billing-address">
         <h1 class="mall-signup__subheading">
-            {{'Morada'|_}}
+            {{'Address'|_}}
         </h1>
 
         {% partial __SELF__ ~ '::addressform' type='billing' %}
@@ -69,7 +74,7 @@
                        type="checkbox"
                        name="use_different_shipping" value="1">
                 <span>
-                    {{'Usar endereço diferente para envio'|_}}
+                    {{'Use different shipping address'|_}}
                 </span>
             </label>
         </div>
@@ -77,7 +82,7 @@
 
     <div class="mall-shipping-address" style="display: none">
         <h3 class="mall-signup__subheading">
-            {{ 'Morada'|_ }}
+            {{ 'Address'|_ }}
         </h3>
         {% partial __SELF__ ~ '::addressform' type='shipping' %}
     </div>    

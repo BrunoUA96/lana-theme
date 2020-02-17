@@ -1,4 +1,4 @@
-<div class="mall-orders-list col-md-8 dasboard_box">
+<div class="mall-orders-list col-md-8 col-md-offset-1 dasboard_box">
     {% if __SELF__.orders.count > 0 %}
         {% partial __SELF__ ~ '::orderlist' orders=__SELF__.orders %}
     {% else %}

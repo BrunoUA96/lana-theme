@@ -45,8 +45,8 @@
             {{ product.price() }}
         </p>
     </td>
-    <td data-label="Quantidade">
-        <select class="custom-select js-mall-quantity" data-id="{{ product.hashId }}" name="quantity">
+    <td data-label="Quantidade" class="form">
+        <select class="custom-select js-mall-quantity" style="background-color: #fff;" data-id="{{ product.hashId }}" name="quantity">
             {% set min = product.data.quantity_min | default(mallCart.defaultMinQuantity) %}
             {% set max = product.data.quantity_max | default(mallCart.defaultMaxQuantity) %}
             {% for i in range(min, max) %}

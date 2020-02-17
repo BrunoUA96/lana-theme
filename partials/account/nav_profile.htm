@@ -8,8 +8,8 @@
         margin-bottom: 15px;
         text-transform: uppercase;
         text-decoration: none;
-        font-size: 17px;
-        padding: 9px;
+        font-size: 16px;
+        padding: 8px 12px;
     }
 
     .nav_profile .active {
@@ -17,20 +17,29 @@
         color: #fff;
     }
 
+    .nav_profile a span {
+        margin-right: 7px;
+        font-size: 16px;
+    }
+
 </style>
 
 
-<div class="col-md-4 nav_profile">
+<div class="col-md-3 nav_profile">
     <a class="{% if this.param.page == 'profile' %} active {% endif %}" href="{{'account_profile'|page({page: 'profile'})}}">
+        <span class="fa fa-user"></span>
         Account
     </a>
     <a class="{% if this.param.page == 'orders' %}active{% endif %}" href="{{'account_profile'|page({page: 'orders'})}}">
+        <span class="fa fa-shopping-cart"></span>
         Orders
     </a>
     <a class="{% if this.param.page == 'addresses' %}active{% endif %}" href="{{'account_profile'|page({page: 'addresses'})}}">
+        <span class="fa fa-address-card"></span>
         Addresses
     </a>
     <a href="#" data-request="onLogout" data-request-data="redirect: '/'">
+        <span class="fa fa-unlock-alt"></span>
         Logout
     </a>
 </div>

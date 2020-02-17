@@ -1,4 +1,15 @@
 {##}
+<style>
+    .mall-orders-list__order {
+        cursor: pointer;
+    }
+
+    .mall-orders-list__order p {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    
+</style>
 <div class="mall-table-overflow">
     <h1>
         Orders
@@ -6,7 +17,7 @@
     <div class="row mb-4">
         <div class="col-12 pt-5">
             <!-- Tabela Encomendas -->
-            <table class="table mall-orders-list__table mall-table">
+            <table class="table mall-orders-list__table mall-table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -45,10 +56,10 @@
                             <td data-label="estado">
                                 <p>
                                     {% if order.isPaid %}
-                                        Pago
+                                        Paid
                                     {% else %}
                                         <span class="view">
-                                            Ver
+                                            More Info
                                         </span>
                                     {% endif %}
                                 </p>
