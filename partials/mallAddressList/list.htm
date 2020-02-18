@@ -2,7 +2,7 @@
 {##}
 {% for address in __SELF__.addresses %}
 <div class="row listagem_moradas">
-    <div class="col-6">
+    <div class="col-md-6">
      {% if address.company %}
         <p>
             <span>
@@ -35,7 +35,7 @@
     {% endif %}
 
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
         <div class="row">
 
         </div>
@@ -58,7 +58,7 @@
             {{ address.country.name }}
         </p>
     </div>
-    <div class="col-6 offset-6 text-right mb-4">
+    <div class="col-md-6 col-md-offset-6 text-right mb-4">
         <a href="{{ __SELF__.addressPage | page({address: address.hashId, redirect: 'account'}) }}"
             class="btn btn_a btn-mod btn-round">
             Edit

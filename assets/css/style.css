@@ -2683,7 +2683,7 @@ a.logo:hover {
     overflow: hidden;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: bottom;
 
     -webkit-background-size: cover;
     -moz-background-size: cover;

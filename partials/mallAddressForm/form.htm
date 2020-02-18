@@ -2,11 +2,11 @@
 {% if type %}
     {% set type = (type ~ '_') %}
 {% endif %}
-<div class="col-md-8">
+<div class="col-md-8 form mb-30">
 
 
-    <div class="row">
-        <div class="col-12">
+    <div class="row mb-30">
+        <div class="col-md-12">
             <div class="form-group">
                 <label for="{{ type }}company">Company</label>
                 <input class="form-control" id="{{ type }}company" type="text" value="{{ address.company }}"
@@ -15,8 +15,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
+    <div class="row mb-30">
+        <div class="col-md-12">
             <div class="form-group">
                 <label for="{{ type }}address_name">Name</label>
                 <input class="form-control" id="{{ type }}address_name" type="text" value="{{ address.name }}"
@@ -25,15 +25,15 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
+    <div class="row mb-30">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="{{type}}nif">VAT Number</label>
                 <input class="form-control" id="{{type}}nif" type="text" value="{{address.nif}}" name="{{type}}nif">
                 <div data-validate-for="{{type}}nif"></div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="{{type}}telefone">Telephone</label>
                 <input class="form-control" id="{{type}}telefone" type="text" value="{{address.telefone}}"
@@ -43,8 +43,8 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12">
+    <div class="row mb-30">
+        <div class="col-md-12">
             <div class="form-group">
                 <label for="{{ type }}lines">Address</label>
                 <textarea class="form-control" id="{{ type }}lines" type="text"
@@ -53,8 +53,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
+    <div class="row mb-30">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="{{ type }}zip">Zip Code:</label>
                 <input class="form-control" id="{{ type }}zip" name="{{ type }}zip" type="text"
@@ -62,7 +62,7 @@
                 <div data-validate-for="{{ type }}zip"></div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="{{ type }}city">City</label>
                 <input class="form-control" id="{{ type }}city" name="{{ type }}city" type="text"
@@ -71,7 +71,12 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-30">
         {% partial __SELF__ ~ '::countrystate' type=type countryId=address.country_id stateId=address.state_id %}
+    </div>
+    <div class="row mb-30">
+        <div class="col-md-12">
+            {% partial __SELF__ ~ '::actions' %}
+        </div>
     </div>
 </div>

@@ -4,6 +4,8 @@ layout = "default"
 
 [slideshows]
 sstheme = "lana"
+
+[faq]
 ==
 
 
@@ -18,61 +20,24 @@ sstheme = "lana"
 
         <div class="row section-text">
             <div class="col-md-8 col-md-offset-2">
-
-                <hr class="mb-30" />
-
-                <h4 class="font-alt">What do you mean by an End Product?</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                    laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                    consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor
-                    ac vestibulum nec, consectetur at purus.
-                </p>
-
-                <hr class="mb-30" />
-
-                <h4 class="font-alt">I have bought a product that has files missing, what do I do?</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                    laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                    consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor
-                    ac vestibulum nec, consectetur at purus.
-                </p>
-
-                <hr class="mb-30" />
-
-                <h4 class="font-alt">Do I need to buy a licence for each site?</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                    laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                    consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor
-                    ac vestibulum nec, consectetur at purus.
-                </p>
-
-                <hr class="mb-30" />
-
-                <h4 class="font-alt">Is my license transferable?</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                    laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                    consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor
-                    ac vestibulum nec, consectetur at purus.
-                </p>
-
-                <hr class="mb-30" />
-
-                <h4 class="font-alt">Can I incorporate advertising in my end product with a regular licence?</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                    laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                    consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus, tempor
-                    ac vestibulum nec, consectetur at purus.
-                </p>
-
-
+                
+                <dl class="accordion">
+                {% for faq in faqs if faq.slug == 'terms-and-conditions-sale' %}
+                    {% for pergunta in faq.perguntas %}
+                        <dt>
+                            <a href="">
+                                {{pergunta.pergunta}}
+                            </a>
+                        </dt>
+                        <dd>
+                            {{pergunta.resposta|raw}}
+                        </dd>
+                           
+                    {% endfor %}
+                {% endfor %}
+                </dl>
             </div>
         </div>
-
     </div>
 </section>
 <!-- End Section -->

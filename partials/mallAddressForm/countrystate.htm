@@ -8,7 +8,7 @@
 {% endif %}
 
 {% set id = type ~ 'country_id' %}
-<div class="col-6">
+<div class="col-md-6">
     <div class="form-group">
         <label for="{{ id }}">County</label>
         {{ form_select_country(id, countryId, {
@@ -26,7 +26,7 @@
 
 {% if __SELF__.useState %}
     {% set id = type ~ 'state_id' %}
-    <div class="col-6">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="{{ id }}">{{ 'offline.mall::frontend.form.state' | trans }}</label>
             {{ form_select_state(id, countryId, stateId, {

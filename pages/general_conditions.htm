@@ -4,6 +4,8 @@ layout = "default"
 
 [slideshows]
 sstheme = "lana"
+
+[faq]
 ==
 
 <!-- Head Section -->
@@ -17,83 +19,18 @@ sstheme = "lana"
 
         <div class="row section-text">
             <div class="col-md-8 col-md-offset-2">
-
-                <!-- Accordion -->
-                <dl class="accordion">
-
-                    <dt>
-                        <a href="">What do you mean by an End Product?</a>
-                    </dt>
-                    <dd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                        laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                        consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus,
-                        tempor ac vestibulum nec, consectetur at purus.
-                    </dd>
-
-                    <dt>
-                        <a href="">Where do I find my Purchase or License code?</a>
-                    </dt>
-                    <dd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                        laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                        consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus,
-                        tempor ac vestibulum nec, consectetur at purus.
-                    </dd>
-
-                    <dt>
-                        <a href="">Do I need to buy a licence for each site?</a>
-                    </dt>
-                    <dd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                        laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                        consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus,
-                        tempor ac vestibulum nec, consectetur at purus.
-                    </dd>
-
-                    <dt>
-                        <a href="">Is my license transferable?</a>
-                    </dt>
-                    <dd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                        laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                        consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus,
-                        tempor ac vestibulum nec, consectetur at purus.
-                    </dd>
-
-                    <dt>
-                        <a href="">Can I incorporate advertising in my end product with a regular licence?</a>
-                    </dt>
-                    <dd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                        laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                        consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus,
-                        tempor ac vestibulum nec, consectetur at purus.
-                    </dd>
-
-                    <dt>
-                        <a href="">If I make a clip for YouTube using music from AudioJungle, can I monetize the clip by
-                            allowing ads?</a>
-                    </dt>
-                    <dd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                        laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                        consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus,
-                        tempor ac vestibulum nec, consectetur at purus.
-                    </dd>
-
-                    <dt>
-                        <a href="">Do I need a separate license each time I use an item in a series?</a>
-                    </dt>
-                    <dd>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula porttitor rutrum. Ut
-                        laoreet sodales rutrum. Ut eget tristique nibh. Cras mattis est eget lacus dignissim, non
-                        consectetur velit pellentesque. Ut sit amet placerat eros, id gravida arcu. Sed felis purus,
-                        tempor ac vestibulum nec, consectetur at purus.
-                    </dd>
-
-                </dl>
-                <!-- End Accordion -->
+                <hr class="mb-30" />
+                {% for faq in faqs if faq.slug == 'general-conditions' %}
+                    {% for pergunta in faq.perguntas %}
+                        <h4 class="font-alt">
+                            {{pergunta.pergunta}}
+                        </h4>
+                        <p>
+                            {{pergunta.resposta|raw}}
+                        </p>
+                        <hr class="mb-30" />
+                    {% endfor %}
+                {% endfor %}
 
             </div>
         </div>
