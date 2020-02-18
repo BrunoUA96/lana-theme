@@ -133,7 +133,7 @@
                     {% if not user %}
                         <a href="{{'login_registo'|page}}" class="mn-has-sub">Log in</a>
                     {% else %}
-                        <a href="{{'account_orders'|page}}" class="mn-has-sub">Hello {{user.name}}</a>
+                        <a href="{{'account_profile'|page({page: 'orders'})}}" class="mn-has-sub">Hello {{user.name}}</a>
                     {% endif %}
 
                 </li>
