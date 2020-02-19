@@ -1,62 +1,30 @@
-==
-{##}
-
-
-<div class="col-sm-8 col-md-6 mb-xs-40">
-    <form class="form" data-request="onAddToCart" data-request-success="$.publish('mall.cart.productAdded', data)" data-request-validate id="mall-add-to-cart">         
-        <h3 class="mt-0 font-alt">{{ item.name }}</h3>
+ <!-- Section -->
+ <section class="page-section pb-0">
+    <div class="container relative">
         
-        <hr class="mt-0 mb-30"/>
-        
-        <div class="row">
-            <div class="col-xs-6 lead mt-0 mb-20">
-                
-                <!-- <del class="section-text">$50.00</del> 
-
-                <strong>$25.99</strong>-->
-
-                <strong>{{ item.price() }}</strong>
-        
+        <!-- Product Content -->
+        <div class="row mb-60 mb-xs-30">
+            <!-- Product Images -->
+            {% partial 'product_page/image_product'  %}
+            <!-- End Product Images -->
+            <div class="col-sm-8 col-md-6 mb-xs-40">
+                <div class="mall-product__info">
+                    {% partial __SELF__ ~ '::info' %}
+                </div>
+                <div class="mall-product__cart">
+                    {% partial __SELF__ ~ '::cart' %}
+                </div>
             </div>
-            <!-- <div class="col-xs-6 align-right section-text">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                &nbsp;(3 reviews)
-            </div> -->
         </div>
-        
-        <hr class="mt-0 mb-30"/> 
-        
-        <div class="section-text mb-30">
-            {{item.description|raw}}
-        </div>
-
-        <hr class="mt-0 mb-30"/> 
-        
-
-        <div class="mb-30">
-            
-            {% partial __SELF__ ~ '::addtocart' item=item %}
-            
-        </div>
-
-        <hr class="mt-0 mb-30"/> 
-        {% if false %}
-            <div class="section-text small">
-                <div>SKU: 2134</div>
-                <div>Category: <a href=""> Polo shirts</a></div>
-                <div>Tags: <a href="">polo shirt</a>, <a href="">men</a></div>
-            </div>
-        {% endif %}
-    </form>
-</div>
-
+        <!-- End Product Content -->
+    </div>
+</section>
+<!-- End Section -->
+<hr class="mt-0 mb-30"/> 
 
 {% partial __SELF__ ~ '::scripts' %}
 
 {% if __SELF__.dataLayer %}
-{% partial __SELF__ ~ '::datalayer' %}
+    {% partial __SELF__ ~ '::datalayer' %}
 {% endif %}
+

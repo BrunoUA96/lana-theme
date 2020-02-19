@@ -1,17 +1,18 @@
-title = "Produto"
-url = "/produto/:slug/:variant?"
+title = "Product"
+url = "/product/:slug/:variant?"
 layout = "default"
+is_hidden = 0
 
 [product mallProduct]
 product = ":slug"
 variant = ":slug"
-redirectOnPropertyChange = 1
-currentVariantReviewsOnly = 0
+
 
 [wishlistButton mallWishlistButton]
 ==
 
-{% partial 'product_page/product' %}
+{% component 'mallProduct' %}
+
 
 {% if false %}
 {% partial 'product_page/related_products' %}

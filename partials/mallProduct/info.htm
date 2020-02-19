@@ -1,0 +1,26 @@
+<h3 class="mall-product__name mt-0 font-alt">
+    {{ item.name }}
+</h3>
+<hr class="mt-0 mb-30 ">
+
+<div class="mall-product__price mb-30">
+    {% partial __SELF__ ~ '::price' item=item %}
+</div>
+<hr class="mt-0 mb-30 ">
+
+{% if item.description_short %}
+    <h3 class="mall-product__description-short">
+        {{ item.description_short | nl2br }}
+    </h3>
+{% endif %}
+
+<div class="mall-product__description">
+    {{ item.description | raw }}
+</div>
+<hr class="mt-0 mb-30 ">
+
+{% partial __SELF__ ~ '::propertyvalues' images=item.all_images %}
+<hr class="mt-0 mb-30 ">
+{% if false %}
+{% partial __SELF__ ~ '::images' images=item.all_images %}
+{% endif %}
