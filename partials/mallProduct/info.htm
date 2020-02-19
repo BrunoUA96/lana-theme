@@ -1,3 +1,9 @@
+<style>
+    .mall-product__tax-info {
+        font-size: 12px;
+        color: #666;
+    }
+</style>
 <h3 class="mall-product__name mt-0 font-alt">
     {{ item.name }}
 </h3>
@@ -11,13 +17,13 @@
 </div>
 
 <hr class="mt-0 mb-30 ">
-
-{% if item.description_short %}
-    <h3 class="mall-product__description-short">
-        {{ item.description_short | nl2br }}
-    </h3>
+{% if false %}
+    {% if item.description_short %}
+        <h3 class="mall-product__description-short">
+            {{ item.description_short | nl2br }}
+        </h3>
+    {% endif %}
 {% endif %}
-
 <div class="mall-product__description">
     {{ item.description | raw }}
 </div>
