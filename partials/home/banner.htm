@@ -15,11 +15,13 @@
                         <div class="hs-line-2 no-transp font-alt mb-40 mb-xs-10">
                                 {{slide.subtitulo}}
                         </div>
-                        
-                        <div class="local-scroll">
-                            <a href="#about" class="btn btn-mod btn-w btn-medium">Shop Now</a>
-                        </div>
-                        
+                        {% if slide.url|length > 0 %}
+                            <div class="local-scroll">
+                                <a href="{{slide.url}}" class="btn btn-mod btn-w btn-medium">
+                                    {{'Shop Now'|_}}
+                                </a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <!-- End Hero Content -->

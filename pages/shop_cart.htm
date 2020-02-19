@@ -39,71 +39,7 @@ sstheme = "lana"
                 <!-- mallCart -->
                 {% component 'mallCart' %}
 
-                <hr class="mb-60" />
-
-                <div class="row">
-                    <div class="col-sm-6">
-
-                    </div>
-                    <div class="col-sm-6 text align-right pt-10">
-
-
-
-                        {% set totals=cart.totals %}
-                        {% set discounts=cart.totals.appliedDiscounts %}
-                        {% set shipping=cart.totals.shippingTotal %}
-                        {% set payment=cart.totals.paymentTotal %}
-                        {% set totals=cart.totals %}
-                        {% set taxes=cart.totals.taxes %}
-                    
-                        {# SUB TOTAL #}
-
-                        <div>
-                            Cart subtotal: 
-                            <strong>
-                                {{ totals.productPostTaxes | money }}
-                            </strong>
-                        </div>
-
-                        {# DISCOUNTS #}
-
-                        {% for entry in discounts %}
-                        <div class="mb-10">
-                            {{ entry.discount.name }}
-                            {% if entry.discount.code %}
-                                ({{ entry.discount.code }})
-                            {% endif %} 
-                            <strong>
-                                {{ entry.savings | money }}
-                            </strong>
-                        </div>
-                        {% endfor %}
-
-                        {# SHIPPING #}
-                        <div class="mb-10">
-                            Shipping {{ shipping.method.name }}: 
-                            <strong>
-                                {{ shipping.totalPostTaxes | money }}
-                            </strong>
-                        </div>
-
-                        {# TOTAL #}
-                        <div class="lead mt-0 mb-30">
-                            Order Total: 
-                            <strong>
-                                {{ cart.totals.totalPostTaxes | money }}
-                            </strong>
-                        </div>
-                        {% if not step %}
-                        <div>
-                            <a href="{{'checkout'|page}}" class="btn btn-mod btn-round btn-large">Proceed to Checkout</a>
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-
-
-
+        
             </div>
         </div>
 

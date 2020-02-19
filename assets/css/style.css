@@ -1171,7 +1171,7 @@ a.btn-mod:focus {
         width: 50%;
         right: 0;
         text-align: left;
-        padding-left: 75px !important;
+        padding-right: 75px !important;
         display: flex;
         height: 100%;
         justify-content: center;
@@ -1180,7 +1180,7 @@ a.btn-mod:focus {
 
     .banner_home .home-content .home-text {
         padding-top: 25px;
-        background: rgba(34, 34, 34, 0.35);
+        background: rgba(34, 34, 34, 0.45);
         padding-left: 30px;
         padding-bottom: 25px;
         padding-right: 30px;
@@ -1912,7 +1912,7 @@ a.logo:hover {
     padding: 15px;
     text-align: left;
     white-space: nowrap;
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid rgba(0, 0, 0, .05);
 }
 
 .mn-sub-multi {

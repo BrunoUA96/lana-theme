@@ -3,9 +3,13 @@
 </h3>
 <hr class="mt-0 mb-30 ">
 
-<div class="mall-product__price mb-30">
+<div class="mall-product__price mb-5">
     {% partial __SELF__ ~ '::price' item=item %}
 </div>
+<div class="mall-product__tax-info mb-30">
+    {% partial __SELF__ ~ '::tax-info' item=item %}
+</div>
+
 <hr class="mt-0 mb-30 ">
 
 {% if item.description_short %}
