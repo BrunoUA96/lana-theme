@@ -1,3 +1,12 @@
+<style>
+    .mall-product__variants {
+        display: flex;
+    }
+
+    .mall-product__variant {
+        margin-right: 15px;
+    }
+</style>
 <form data-request="onAddToCart"
       data-request-success="data.added && $.publish('mall.cart.productAdded', data)"
       data-request-validate
@@ -34,7 +43,12 @@
     <div class="row">
         <div class="col-md-12">
             {% if variants.count > 0 %}
+            <h5 class="mall-product__variants-heading">
+                Other Color
+            </h5>
+            {% if false %}
                 <h5 class="mall-product__variants-heading">{{ 'offline.mall::frontend.variants' | trans }}</h5>
+            {% endif %}
                 <div class="mall-product__variants">
                     {% for value, variant in variants %}
                         {% set variant = variant.first() %}
