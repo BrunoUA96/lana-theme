@@ -28,32 +28,55 @@
     <div class="row box_items_footer">
         <div class="col-md-3 text-center">
             <ul class="clearlist text-left">
-                <span>About</span>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
+                <span>{{'Brand'|_}}</span>
+                <li><a href="">{{'About'|_}}</a></li>
+                <li><a href="">{{'Contact'|_}}</a></li>
             </ul>
         </div>
         <div class="col-md-3 text-center">
             <ul class="clearlist text-left">
-                <span>CUSTOMER</span>
-                <li><a href="{{'general_conditions'|page}}">General Conditions</a></li>
-                <li><a href="{{'tems_conditions'|page}}">Terms & Conditions of Sale</a></li>
-                <li><a href="{{'privacy_note'|page}}">Privacy Note</a></li>
+                <span>{{'CUSTOMER'|_}}</span>
+                <li><a href="{{'general_conditions'|page}}">{{'General Conditions'|_}}</a></li>
+                <li><a href="{{'tems_conditions'|page}}">{{'Terms & Conditions of Sale'|_}}</a></li>
+                <li><a href="{{'privacy_note'|page}}">{{'Privacy Note'|_}}</a></li>
             </ul>
         </div>
         <div class="col-md-3 text-center">
             <ul class="clearlist text-left">
-                <span>PERSONAL AREA</span>
-                <li><a href="">Account</a></li>
-                <li><a href="">Wishlist</a></li>
-                <li><a href="">Gift Card</a></li>
+                <span>{{'PERSONAL AREA'|_}}</span>
+                {% if user %}
+                    <li>
+                        <a href="{{'account_profile'|page({page: 'orders'})}}">
+                            {{'Account'|_}}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            {{'Wishlist'|_}}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{'login_registo'|page}}">
+                            {{'Log In'|_}}
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div class="col-md-3 text-center">
             <ul class="clearlist text-left">
-                <span>HELP</span>
-                <li><a href="{{'faqs'|page}}">FAQ's</a></li>
-                <li><a href="">Returns</a></li>
+                <span>{{'HELP'|_}}</span>
+                <li>
+                    <a href="{{'faqs'|page}}">
+                        FAQ's
+                    </a>
+                </li>
+                <li>
+                    <a href="{{'faqs'|page}}">
+                        {{'Returns'|_}}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

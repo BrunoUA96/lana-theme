@@ -28,18 +28,18 @@
 <div class="col-md-3 nav_profile">
     <a class="{% if this.param.page == 'profile' %} active {% endif %}" href="{{'account_profile'|page({page: 'profile'})}}">
         <span class="fa fa-user"></span>
-        Account
+        {{'Profile'|_}}
     </a>
     <a class="{% if this.param.page == 'orders' %}active{% endif %}" href="{{'account_profile'|page({page: 'orders'})}}">
         <span class="fa fa-shopping-cart"></span>
-        Orders
+        {{'Orders'|_}}
     </a>
     <a class="{% if this.param.page == 'addresses' %}active{% endif %}" href="{{'account_profile'|page({page: 'addresses'})}}">
         <span class="fa fa-address-card"></span>
-        Addresses
+        {{'Addresses'|_}}
     </a>
     <a href="#" style="font-size: 13px;" data-request="onLogout" data-request-data="redirect: '/'">
         <span class="fa fa-unlock-alt" style="font-size: 13px;"></span>
-        Logout
+        {{'Logout'|_}}
     </a>
 </div>

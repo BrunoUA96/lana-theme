@@ -24,12 +24,12 @@
             </div>
             <ul class="clearlist nav_items_navbar">
                 <li>
-                    <a href="{{'about'|page}}" class="mn-has-sub">About</a>
+                    <a href="{{'about'|page}}" class="mn-has-sub">{{'About'|_}}</a>
                 </li>
 
                 <li>
                     <a href="{{'listagem_produtos'|page({slug: 'home'})}}" class="mn-has-sub">
-                        For Home 
+                        {{'For Home'|_}} 
                         <i class="fa fa-angle-down"></i>
                     </a>
 
@@ -42,17 +42,17 @@
                             <ul>
                                 <li>
                                     <a href="{{'listagem_produtos'|page({slug: 'home' ~'/'~ 'bed-wear'})}}">
-                                        Bed wear
+                                        {{'Bed wear'|_}}
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{'listagem_produtos'|page({slug: 'home' ~'/'~ 'buckwheat-hulls-pillows'})}}">
-                                        Buckwheat Hulls Pillows
+                                        {{'Buckwheat Hulls Pillows'|_}}
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{'listagem_produtos'|page({slug: 'home' ~'/'~ 'buckwheat-pillows-case'})}}">
-                                        Buckwheat Pillows Case
+                                        {{'Buckwheat Pillows Case'|_}}
                                     </a>
                                 </li>
                             </ul>
@@ -67,7 +67,7 @@
 
                 <li>
                     <a href="{{'listagem_produtos'|page({slug: 'clothes'})}}" class="mn-has-sub">
-                        Clothes 
+                        {{'Clothes'|_}} 
                         <i class="fa fa-angle-down"></i>
                     </a>
 
@@ -80,12 +80,12 @@
                             <ul>
                                 <li>
                                     <a href="{{'listagem_produtos'|page({slug: 'clothes' ~'/'~ 'woman'})}}">
-                                        Woman
+                                        {{'Woman'|_}}
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{'listagem_produtos'|page({slug: 'clothes' ~'/'~ 'man'})}}">
-                                        Man
+                                        {{'Man'|_}}
                                     </a>
                                 </li>
                             </ul>
@@ -100,7 +100,7 @@
 
                 <li>
                     <a href="{{'listagem_produtos'|page({slug: 'accessories'})}}" class="mn-has-sub">
-                        Accessories 
+                        {{'Accessories'|_}} 
                         <i class="fa fa-angle-down"></i>
                     </a>
 
@@ -113,7 +113,7 @@
                             <ul>
                                 <li>
                                     <a href="{{'listagem_produtos'|page({slug: 'accessories' ~'/'~ 'lavender'})}}">
-                                        Lavender
+                                        {{'Lavender'|_}}
                                     </a>
                                 </li>
                             </ul>
@@ -131,9 +131,9 @@
                 <!-- Log in -->
                 <li>
                     {% if not user %}
-                        <a href="{{'login_registo'|page}}" class="mn-has-sub">Log in</a>
+                        <a href="{{'login_registo'|page}}" class="mn-has-sub">{{'Log in'|_}}</a>
                     {% else %}
-                        <a href="{{'account_profile'|page({page: 'orders'})}}" class="mn-has-sub">Hello {{user.name}}</a>
+                        <a href="{{'account_profile'|page({page: 'orders'})}}" class="mn-has-sub">{{'Hello'|_}} {{user.name}}</a>
                     {% endif %}
 
                 </li>
@@ -142,7 +142,7 @@
                 <!-- Wishlist -->
                 {% if user %}
                     <li>
-                        <a href="{{'wishlists'|page}}" class="mn-has-sub">Wishlist</a>
+                        <a href="{{'wishlists'|page}}" class="mn-has-sub">{{'Wishlist'|_}}</a>
                     </li>
                 {% endif %}
                 <!-- End Wishlist -->
@@ -152,7 +152,7 @@
                     {% set cartCount = cart.products.count %}
                     <a href="{{'shop_cart'|page}}">
                         <i class="fa fa-shopping-cart"></i>
-                         Cart({% if cartCount %}{{ cartCount }}{% else %}0{% endif %})
+                         {{'Cart'|_}}({% if cartCount %}{{ cartCount }}{% else %}0{% endif %})
                     </a>
                 </li>
                 <!-- End Cart -->
