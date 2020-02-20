@@ -2,10 +2,10 @@
     
 
 
-<div class="container-fluid mb-30" style="max-width: 100%; padding: 0;">
+<div class="container-fluid" style="max-width: 100%; padding: 0;">
     <div class="row">
         {% for post in feed %}
-            <div class="col-md-2" style="padding: 0; width: 10%;">
+            <div class="col-md-2" style="padding: 0; width: 12.5%;">
                 <a target="new" href="{{post.link}}">
                     <img src="{{ post.images.standard_resolution.url }}">
                 </a>
