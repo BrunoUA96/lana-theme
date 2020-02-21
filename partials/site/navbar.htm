@@ -1,5 +1,23 @@
 ==
 {##}
+
+
+<style>
+    .cart_count_navbar{
+        position: relative;
+        padding: 0 2px;
+    }
+    
+    .cart_count_navbar::after {
+        position: absolute;
+        content: attr(data-bascket);
+        line-height: 19px;
+        text-align: center;
+        top: 50%;
+        right: 0px;
+        transform: translateY(-51%);
+    }
+</style>
 <!-- Navigation panel -->
 <nav class="main-nav white stick-fixed">
     <div class="full-wrapper relative clearfix">
@@ -150,9 +168,11 @@
                 <!-- Cart -->
                 <li>
                     {% set cartCount = cart.products.count %}
-                    <a href="{{'shop_cart'|page}}">
+                    <a href="{{'shop_cart'|page}}" >
                         <i class="fa fa-shopping-cart"></i>
-                         {{'Cart'|_}}({% if cartCount %}{{ cartCount }}{% else %}0{% endif %})
+                         {{'Cart'|_}} 
+                         (<span class="cart_count_navbar" data-bascket="{% if cartCount %}{{ cartCount }}{% else %}0{% endif %}">
+                         </span>)
                     </a>
                 </li>
                 <!-- End Cart -->
@@ -164,3 +184,28 @@
     </div>
 </nav>
 <!-- End Navigation panel -->
+{% put scripts %}
+<script>
+    /* Update cart products count in navbar */
+
+    $(function () {
+        var nbItems = '{{ cart.products.count }}';
+        var $count = $('.cart_count_navbar');
+        $.subscribe('mall.cart.productAdded', function (e, data) {
+            // You have access to different values here.
+            // console.log(data.item);
+            // console.log(data.quantity);
+            $count[0].setAttribute('data-bascket', ++nbItems);
+        });
+        $.subscribe('mall.cart.productRemoved', function (e, data) {
+            // You have access to different values here.
+            // console.log(data.item);
+            // console.log(data.quantity);
+            nbItems--;
+            if (nbItems < 0) nbItems = 0;
+            $count[0].setAttribute('data-bascket', nbItems);
+        });
+    });
+
+</script>
+{% endput %}

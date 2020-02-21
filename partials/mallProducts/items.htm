@@ -1,70 +1,16 @@
 description = "items"
 ==
+
+<style>
+    .product_cart_category {
+        min-height: 543px;
+    }
+</style>
+
 <div class="row position-relative">
-    {% if this.page.BaseFileName == 'produto_page' %}
-    <!-- Carousel -- Pagina de Produto -->
-        <div class="owl-carousel owl_novidades">
-    {% endif %}
     {% for item in items %}
-        
-        {% if this.page.BaseFileName == 'produto_page' %}
-        <!-- Carousel -- Pagina de Produto -->
-            <div class="item">
-        {% endif %}
 
         {% partial __SELF__ ~ '::item' item=item %}
 
-        {% if this.page.BaseFileName == 'produto_page' %}
-        <!-- Carousel -- Pagina de Produto -->
-            </div>
-        {% endif %}
     {% endfor %}
-
-    {% if this.page.BaseFileName == 'produto_page' %}
-    <!-- Carousel -- Pagina de Produto -->
-        </div>
-        <span class="owl--arrow novidadeNextBtn">
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-        </span>
-        <span class="owl--arrow novidadePrevBtn">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-        </span>
-    {% endif %}
 </div>
-
-{% put scripts %}
-<script>
-    $(document).ready(function () {
-        var owl = $('.owl_novidades');
-        owl.owlCarousel({
-            items: 4,
-            loop: true,
-            margin: 20,
-            responsive : {
-                0 : {
-                    items: 1
-                },
-                500 : {
-                    items: 2
-                },
-                768 : {
-                    items: 3
-                },
-                992 : {
-                    items: 4
-                }
-            }
-        });
-        $('.novidadeNextBtn').click(function () {
-            owl.trigger('next.owl.carousel');
-        })
-        // Go to the previous item
-        $('.novidadePrevBtn').click(function () {
-            // With optional speed parameter
-            // Parameters has to be in square bracket '[]'
-            owl.trigger('prev.owl.carousel', [300]);
-        })
-    });
-
-</script>
-{% endput %}

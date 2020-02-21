@@ -1,6 +1,7 @@
 title = "Produtos"
 url = "/listagem/:slug*"
 layout = "default"
+is_hidden = 0
 
 [products mallProducts]
 category = ":slug"
@@ -34,7 +35,11 @@ function onEnd(){
 }
 ?>
 ==
-
+<style>
+    .mall-loader {
+        display: none !important;
+    }
+</style>
 {% partial 'site/banner' %}
 
 {% partial 'listagem_produtos/listagem' %}
