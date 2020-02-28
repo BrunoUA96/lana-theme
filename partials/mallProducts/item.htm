@@ -45,9 +45,11 @@ description = "products_item"
     </div>
 
     <div class="post-prev-more align-center">
+        {% if false %}
         <a href="" class="btn">
             <i class="fa fa-heart" aria-hidden="true"></i>
         </a>
+        {% endif %}
         <a href="{{'product_page'|page({slug: item.slug, variant: item.variantId})}}" class="btn btn-mod btn-gray btn-round">
             {{'View more'|_}}
         </a>

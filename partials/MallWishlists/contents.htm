@@ -1,0 +1,28 @@
+
+
+<div class="mall-wishlists-manager__well">
+    {% partial __SELF__ ~ '::cart' %}
+</div>
+
+<script>
+    $(function () {
+        $('.js-mall-quantity').on('change', function () {
+            $.request('{{ __SELF__ }}::onUpdateQuantity', {
+                data: {item_id: this.dataset.id, id: '{{ __SELF__.currentItem.hashId }}', quantity: this.value},
+                loading: $.oc.stripeLoadIndicator,
+            })
+        });
+        $('.js-mall-remove-product').on('click', function (e) {
+            e.preventDefault()
+            $.request('{{ __SELF__ }}::onRemove', {
+                data: {item_id: this.dataset.id, id: '{{ __SELF__.currentItem.hashId }}'},
+                loading: $.oc.stripeLoadIndicator,
+                confirm: '{{ 'offline.mall::frontend.confirm' | trans }}',
+                success: function (data) {
+                    this.success(data)
+                    $.publish('mall.wishlist.productRemoved', data);
+                }
+            })
+        });
+    })
+</script>

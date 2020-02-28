@@ -32,6 +32,7 @@
         <button type="submit" class="mall-add-to-cart-button btn btn-mod btn-large btn-round" data-attach-loading>
             {{ 'offline.mall::frontend.cart.add' | trans }}
         </button>
+        {% partial __SELF__ ~ '::belowcartbutton' %}
     </div>
 {% endif %}
 {% if not item.allow_out_of_stock_purchases %}
@@ -44,9 +45,4 @@
             {{ 'offline.mall::frontend.stock.unavailable' | trans }}
         {% endif %}
     </div>
-{% endif %}
-
-{% partial __SELF__ ~ '::belowcartbutton' %}
-{% if false %}
-{% component 'mallWishlistButton' %}
 {% endif %}

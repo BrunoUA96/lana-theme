@@ -1,0 +1,53 @@
+{% if __SELF__.currentItem.items.count < 1 %}
+    {% partial __SELF__ ~ '::empty' %}
+{% else %}
+
+    {% set items = __SELF__.currentItem.items %}
+    {% set totals = __SELF__.currentItem.totals %}
+  
+
+
+    <div class="mall-cart__wrapper container mt-60">
+        <div class="mall-table-overflow row" style="overflow-y: auto">
+
+            {% for product in __SELF__.currentItem.items %}
+                {% set url = (productPage | page({slug: product.data.slug, variant: product.variant.hashId})) %}
+                {% set image = product.variant ? product.variant.image : product.data.image %}
+                <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
+                    <div class="post-prev-img">
+                        
+                        <a href="{{ url }}">
+                            <img src="{{ image.thumb(auto, auto) }}" alt="">
+                        </a>
+                        <!--
+                            <div class="intro-label">
+                                <span class="label label-danger bg-red">Sale</span>
+                            </div>
+                        -->
+                        
+                    </div>
+                
+                    <div class="post-prev-title font-alt align-center">
+                        <a href="{{ url }}">
+                            {{ product.variant.name }}
+                        </a>
+                    </div>
+                
+                    <div class="post-prev-text align-center">
+                        <strong>{{ product.price() }}</strong>
+                    </div>
+                
+                    <div class="post-prev-more align-center">
+                        <a href="javascript:;"
+                        class="js-mall-remove-product btn btn-mod btn-round"
+                        data-id="{{ product.hashId }}"
+                        >
+                            {{'Remove'|_}}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endif %}
