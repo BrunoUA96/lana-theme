@@ -541,6 +541,12 @@ hr.black {
     font-size: 33px;
 }
 
+@media screen and (max-width: 996px) {
+    .font-alt {
+        font-size: 24px;
+    }
+}
+
 .serif {
     font-family: "Times New Roman", Times, serif;
     font-style: italic;
@@ -1703,6 +1709,20 @@ a.btn-mod:focus {
     margin-right: 20px;
 }
 
+.nav-logo-wrap_mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-logo-wrap_mobile {
+        display: block;
+    }
+
+    .nav-logo-wrap_desktop {
+        display: none;
+    }
+}
+
 .nav-logo-wrap .logo {
     display: table-cell;
     vertical-align: middle;
@@ -2142,6 +2162,7 @@ a.logo:hover {
     vertical-align: middle;
     text-align: center;
     font-size: 21px;
+    color: #000;
 }
 
 /* Menu sub multi */

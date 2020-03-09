@@ -1,8 +1,13 @@
 <style>
     .container_footer .box_items_footer {
-        padding-left: 135px;
         padding-top: 50px;
         padding-bottom: 70px;
+    }
+
+    @media screen and (min-width: 996px) {
+        .container_footer .box_items_footer {
+            padding-left: 135px;
+        } 
     }
 
     .container_footer .box_items_footer span {
@@ -26,7 +31,7 @@
 </style>
 <div class="container container_footer">
     <div class="row box_items_footer">
-        <div class="col-md-3 text-center">
+        <div class="col-sm-3 col-md-3 text-center">
             <ul class="clearlist text-left">
                 <span>{{'Brand'|_}}</span>
                 <li>
@@ -37,7 +42,7 @@
                 <li><a href="{{'contacts'|page}}">{{'Contact'|_}}</a></li>
             </ul>
         </div>
-        <div class="col-md-3 text-center">
+        <div class="col-sm-3 col-md-3 text-center">
             <ul class="clearlist text-left">
                 <span>{{'CUSTOMER'|_}}</span>
                 <li><a href="{{'general_conditions'|page}}">{{'General Conditions'|_}}</a></li>
@@ -45,7 +50,7 @@
                 <li><a href="{{'privacy_note'|page}}">{{'Privacy Note'|_}}</a></li>
             </ul>
         </div>
-        <div class="col-md-3 text-center">
+        <div class="col-sm-3 col-md-3 text-center">
             <ul class="clearlist text-left">
                 <span>{{'PERSONAL AREA'|_}}</span>
                 {% if user %}
@@ -68,7 +73,7 @@
                 {% endif %}
             </ul>
         </div>
-        <div class="col-md-3 text-center">
+        <div class="col-sm-3 col-md-3 text-center">
             <ul class="clearlist text-left">
                 <span>{{'HELP'|_}}</span>
                 <li>

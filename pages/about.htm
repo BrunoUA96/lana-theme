@@ -34,6 +34,38 @@ sstheme = "lana"
         width: 100%;
     }
 
+    .box_row_flex {
+        display: flex;
+    }
+
+    .content_row_flex {
+        display: flex; 
+        align-items: center; 
+        padding-left: 5%;
+    }
+
+    @media screen and (max-width: 996px) {
+        .box_row_flex {
+            padding: 0 30px;
+            margin-top: 20px;
+            display: block;
+        } 
+
+        .content_row_flex {
+            display: block;
+            padding-left: 15px;
+        }
+
+        .content_row_flex h1 {
+            text-align: center;
+            font-size: 30px !important;
+        }
+
+        .about_subtitle {
+            padding: 0 30px;
+        }
+    }
+
 </style>
 {% endput %}
 
@@ -57,7 +89,7 @@ sstheme = "lana"
     <div class="row">
         <div class="col-md-4 mt-30">
             <div class="mod-breadcrumbs font-alt align-left">
-                <a href="#">Home</a>&nbsp;/&nbsp;<span>About Us</span>
+                <a href="{{'home'|page}}">Home</a>&nbsp;/&nbsp;<span>About Us</span>
             </div>
 
         </div>
@@ -77,7 +109,7 @@ sstheme = "lana"
             </blockquote>
         </div>
         <div class="col-md-12 text-center mt-50" style="font-size: 16px;">
-            <p>
+            <p class="about_subtitle">
                 Lana & Linen is a family business. My mother and I started this idea 2017. Initially we produced some
                 samples of <br> which our routine clients impressed. Furthermore, we optimized the collection for daily
                 use. All of our <br> products are hand - made, which is our niche.
@@ -86,11 +118,11 @@ sstheme = "lana"
         </div>
     </div>
 
-    <div class="row" style="display: flex;">
-        <div class="col-md-6">
+    <div class="row box_row_flex">
+        <div class="col-xs-12 col-sm-6 col-md-6">
             <img class="w-100" src="{{'assets/images/about/about_02.jpg'|theme}}" alt="">
         </div>
-        <div class="col-md-6" style="display: flex; align-items: center; padding-left: 5%;">
+        <div class="col-xs-12 col-sm-6 col-md-6 content_row_flex">
             <h1 class="font-alt" style="color: #787878; font-size: 40px;">
                 "We think that <br> simplicity is <br> the true beauty"
             </h1>

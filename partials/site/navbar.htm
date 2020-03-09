@@ -23,11 +23,11 @@
     <div class="full-wrapper relative clearfix">
 
         <!-- Logo ( * your text or image into link tag *) -->
-        <!-- <div class="nav-logo-wrap local-scroll">
-            <a href="mp-index.html" class="logo">
-                <img src="{{'assets/images/logo/logo-white.png'|theme}}" alt="" />
+        <div class="nav-logo-wrap nav-logo-wrap_mobile local-scroll">
+            <a href="{{'home'|page}}" class="logo">
+                <img src="{{'assets/images/logo/logo.png'|theme}}" alt="" />
             </a>
-        </div> -->
+        </div>
 
         <div class="mobile-nav">
             <i class="fa fa-bars"></i>
@@ -35,14 +35,14 @@
 
         <!-- Main Menu -->
         <div class="inner-nav desktop-nav">
-            <div class="nav-logo-wrap local-scroll">
+            <div class="nav-logo-wrap local-scroll nav-logo-wrap_desktop">
                 <a href="{{'home'|page}}" class="logo">
                     <img src="{{'assets/images/logo/logo.png'|theme}}" alt="" />
                 </a>
             </div>
             <ul class="clearlist nav_items_navbar">
                 <li>
-                    <a href="{{'about'|page}}" class="mn-has-sub">{{'About'|_}}</a>
+                    <a href="{{'about'|page}}">{{'About'|_}}</a>
                 </li>
 
                 <li>
@@ -149,9 +149,9 @@
                 <!-- Log in -->
                 <li>
                     {% if not user %}
-                        <a href="{{'login_registo'|page}}" class="mn-has-sub">{{'Log in'|_}}</a>
+                        <a href="{{'login_registo'|page}}">{{'Log in'|_}}</a>
                     {% else %}
-                        <a href="{{'account_profile'|page({page: 'orders'})}}" class="mn-has-sub">{{'Hello'|_}} {{user.name}}</a>
+                        <a href="{{'account_profile'|page({page: 'orders'})}}">{{'Hello'|_}} {{user.name}}</a>
                     {% endif %}
 
                 </li>
@@ -160,7 +160,7 @@
                 <!-- Wishlist -->
                 {% if user %}
                     <li>
-                        <a href="{{'wishlists'|page}}" class="mn-has-sub">{{'Wishlist'|_}}</a>
+                        <a href="{{'wishlists'|page}}">{{'Wishlist'|_}}</a>
                     </li>
                 {% endif %}
                 <!-- End Wishlist -->

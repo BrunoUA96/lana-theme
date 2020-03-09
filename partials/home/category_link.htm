@@ -20,6 +20,12 @@ paginate = 0
         padding: 0 310px;
     }
 
+    @media screen and (max-width: 996px) {
+        .container_category span {
+            padding: 0 50px !important;
+        } 
+    }
+
     .post-prev-img a {
         position: relative;
         display: inline-block;
@@ -36,6 +42,20 @@ paginate = 0
         width: 210px;
         text-align: center;
     }
+
+    @media screen and (max-width: 996px) {
+        .box_categories {
+            height: 100% !important;
+        } 
+        .box_categories li.col-md-4 {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        .box_categories li.col-md-4 span {
+            font-size: 24px;
+        }
+    }
+    
 
 </style>
 
@@ -55,8 +75,8 @@ paginate = 0
             <div class="row">
                 <div class="col-md-12">
                     <!-- Grid -->
-                    <ul class="works-grid work-grid-gut work-grid-3 clearfix font-alt hover-white hide-titles row"
-                        id="work-grid" style="position: relative; height: 0px;">
+                    <ul class="works-grid box_categories work-grid-gut work-grid-3 clearfix font-alt hover-white hide-titles row"
+                        id="work-grid" style="position: relative;">
 
                         <!-- Item -->
                         <li class="col-md-4">
