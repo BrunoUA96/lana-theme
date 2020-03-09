@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{'wishlists'|page}}">
                             {{'Wishlist'|_}}
                         </a>
                     </li>
@@ -76,11 +76,13 @@
                         FAQ's
                     </a>
                 </li>
-                <li>
-                    <a href="{{'faqs'|page}}">
-                        {{'Returns'|_}}
-                    </a>
-                </li>
+                {% if false %}
+                    <li>
+                        <a href="{{'faqs'|page}}">
+                            {{'Returns'|_}}
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>

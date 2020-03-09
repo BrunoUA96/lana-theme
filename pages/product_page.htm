@@ -8,11 +8,12 @@ product = ":slug"
 variant = ":slug"
 
 
-[wishlistButton mallWishlistButton]
+[lanaWishlist mallWishlistButton]
+product = "{{:slug}}"
+variant = "{{:variant}}"
 ==
 
-{% component 'mallProduct' %}
-
+{% component 'mallProduct' produtoWishlist = produtoWishlist %}
 
 {% if false %}
 {% partial 'product_page/related_products' %}

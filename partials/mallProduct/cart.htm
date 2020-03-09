@@ -6,6 +6,14 @@
     .mall-product__variant {
         margin-right: 15px;
     }
+
+    .box_add_cart__wishlist {
+        display: flex;
+    }
+
+    .box_add_cart__wishlist .mall-wishlist-button {
+        padding-top: 26px;
+    }
 </style>
 <form data-request="onAddToCart"
       data-request-success="data.added && $.publish('mall.cart.productAdded', data)"
@@ -28,8 +36,11 @@
         
     </div>
     <hr class="mt-0 mb-30 ">
-    <div class="row">
-        <div class="mall-product__add-to-cart col-md-12">
+   
+    
+    <div class="row box_add_cart__wishlist">
+        
+        <div class="mall-product__add-to-cart col-md-9">
             {% if item.allow_out_of_stock_purchases %}
                 {% partial __SELF__ ~ '::addtocart.htm' item=item %}
             {% else %}
@@ -38,6 +49,7 @@
                 </div>
             {% endif %}
         </div>
+        {% partial __SELF__ ~ '::belowcartbutton' produtoWishlist = produtoWishlist %}
     </div>
     <hr class="mt-0 mb-30 ">
     <div class="row">

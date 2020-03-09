@@ -16,9 +16,17 @@
 
     
 </style>
+
+
+{% if produtoWishlist|length > 0 %}
+    <p style="padding-top: 13px;">
+        Added to Wishlist
+    </p>
+{% else %}
+
 <a href="javascript:;"
    class="mall-wishlist-item mall-add-to-cart-button btn btn-mod btn-large btn-round"
-   data-request="onAdd"
+   data-request="onAddLanaWishList"
    data-request-flash
    data-request-success="
     $.publish('mall.wishlist.productAdded', data);
@@ -31,3 +39,5 @@
     ">
     <i class="fa fa-heart" aria-hidden="true"></i>
 </a>
+
+{% endif %}

@@ -504,8 +504,8 @@ function initPageSliders(){
     (function($){
         var arrowLeft = new Image;
         var arrowRight = new Image;
-        arrowLeft.src = "{{'assets/images/arrow/arrow-left.png'|theme}}";
-        arrowRight.src = "{{'assets/images/arrow/arrow-right.png'|theme}}";
+        arrowLeft.src = 'themes/lana/assets/images/arrow/arrow-left.png';
+        arrowRight.src = 'themes/lana/assets/images/arrow/arrow-right.png';
         "use strict";
         
         // Fullwidth slider

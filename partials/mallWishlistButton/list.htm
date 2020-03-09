@@ -5,10 +5,12 @@
         total=wishlist.totals.totalPostTaxes
         list_id=wishlist.hash_id
         product_id=__SELF__.property('product')
-        variant_id=__SELF__.property('variant') %}
+        variant_id=__SELF__.property('variant')
+        produtoWishlist = produtoWishlist %}
 {% else %}
     {# always include the "default" list if no other lists are available #}
     {% partial __SELF__ ~ '::item'
         product_id=__SELF__.property('product')
-        variant_id=__SELF__.property('variant') %}
+        variant_id=__SELF__.property('variant')
+        produtoWishlist = produtoWishlist %}
 {% endfor %}
