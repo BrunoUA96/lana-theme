@@ -7,7 +7,7 @@
 <tr class="product_row">
     <td data-label="Produto">
         <table class="carrinho_produto">
-            <tr>
+            <tr class="position-relative">
                 <th>
                     {% if image %}
                     <a href="{{ url }}">
@@ -26,6 +26,16 @@
     Cor: -- property not available in component ??? --
 </span> -->
                 </th>
+                <div class="close_b_cart desk_none">
+                    <a href="javascript:;"
+                       class="js-mall-remove-product"
+                       data-id="{{ product.hashId }}"
+                    >
+                        <span class="cancel_row">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </span>  
+                    </a>
+                </div>
             </tr>
         </table>
     </td>
@@ -60,7 +70,7 @@
         </p>
         
         
-        <div class="close_b_cart">
+        <div class="close_b_cart header_table_desk">
             <a href="javascript:;"
                class="js-mall-remove-product"
                data-id="{{ product.hashId }}"

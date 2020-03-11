@@ -1898,6 +1898,7 @@ a.logo:hover {
     top: 0;
     border-left: 1px solid rgba(255, 255, 255, .07);
 }
+
 /*
 .inner-nav>ul>li:last-child .mn-sub,
 .inner-nav li .mn-sub.to-left {
@@ -7279,3 +7280,172 @@ section:hover .small-item-carousel .owl-next {
 }
 
 /* PAge Shop Cart */
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    /* line 1, ../sass/partials/carrinho/_tabela_produto.scss */
+    .tabela_vendas {
+        margin-top: 15px;
+    }
+}
+
+/* line 6, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+@media screen and (max-width: 992px) {
+
+    /* line 6, ../sass/partials/carrinho/_tabela_produto.scss */
+    .tabela_vendas table {
+        border: 0;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    /* line 17, ../sass/partials/carrinho/_tabela_produto.scss */
+    .tabela_vendas table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+}
+
+.desk_none {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .header_table_desk {
+        display: none !important;
+    }
+
+    .desk_none {
+        display: block;
+    }
+
+    /* line 30, ../sass/partials/carrinho/_tabela_produto.scss */
+    .tabela_vendas table tr {
+        border: 1px solid #95989A;
+        display: block;
+        margin-bottom: .625em;
+    }
+}
+
+/* line 40, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table tr.product_row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* line 51, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td {
+    text-align: center;
+    height: 150px;
+}
+
+@media screen and (max-width: 992px) {
+
+    .product_row td {
+        border-bottom: 1px solid !important;
+    }
+
+    .product_row td:last-child {
+        border-bottom: 0 !important;
+    }
+
+    /* line 51, ../sass/partials/carrinho/_tabela_produto.scss */
+    .tabela_vendas table td {
+        border-bottom: 1px solid #95989A;
+        display: block;
+        text-align: right;
+        height: auto;
+    }
+
+    /* line 61, ../sass/partials/carrinho/_tabela_produto.scss */
+    .tabela_vendas table td:last-child {
+        border-bottom: 0;
+    }
+
+    /* line 65, ../sass/partials/carrinho/_tabela_produto.scss */
+    .tabela_vendas table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+}
+
+/* line 121, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* line 160, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td table {
+    border: 0;
+}
+
+/* line 164, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td table.carrinho_produto th {
+    text-align: left;
+}
+
+/* line 167, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td table.carrinho_produto th img {
+    width: 100%;
+}
+
+/* line 171, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td table.carrinho_produto th:first-child {
+    width: 100px;
+}
+
+/* line 176, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td table.carrinho_produto span {
+    font-size: 14px;
+    display: block;
+    color: #545871;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    text-transform: none;
+}
+
+/* line 184, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td table.carrinho_produto span.name_produto {
+    color: #1D2126;
+    font-weight: 500;
+}
+
+/* line 191, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table td table tr {
+    border: 0;
+}
+
+/* line 204, ../sass/partials/carrinho/_tabela_produto.scss */
+.tabela_vendas table th:first-child {
+    width: 30%;
+    text-align: left;
+}
