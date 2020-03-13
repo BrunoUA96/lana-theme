@@ -1,30 +1,3 @@
-<style>
-    .nav_profile {
-        margin-top: 20px;
-    }
-
-    .nav_profile a {
-        display: block;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 16px;
-        padding: 8px 12px;
-    }
-
-    .nav_profile .active {
-        background-color: rgba(34, 34, 34, .9);
-        color: #fff;
-    }
-
-    .nav_profile a span {
-        margin-right: 7px;
-        font-size: 16px;
-    }
-
-</style>
-
-
 <div class="col-md-3 nav_profile">
     <a class="{% if this.param.page == 'profile' %} active {% endif %}" href="{{'account_profile'|page({page: 'profile'})}}">
         <span class="fa fa-user"></span>

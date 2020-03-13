@@ -11,6 +11,12 @@
         display: flex;
     }
 
+    @media (max-width: 768px) {
+        .box_add_cart__wishlist {
+            display: block;
+        }
+    }
+
     .box_add_cart__wishlist .mall-wishlist-button {
         padding-top: 26px;
     }
@@ -27,7 +33,10 @@
                 {% partial __SELF__ ~ '::properties' props=props %}
             </div>
         {% endif %}
-
+        <div class="col-md-12">
+            <hr class="mb-0 mt-30 ">
+        </div>
+        
         {% if item.custom_fields.count > 0 %}
             <div class="mall-product__custom-fields col-md-6">
                 {% partial __SELF__ ~ '::customfields' fields=item.custom_fields %}
@@ -35,10 +44,10 @@
         {% endif %}
         
     </div>
-    <hr class="mt-0 mb-30 ">
+    
    
     
-    <div class="row box_add_cart__wishlist">
+    <div class="row box_add_cart__wishlist mb-30">
         
         <div class="mall-product__add-to-cart col-md-9">
             {% if item.allow_out_of_stock_purchases %}

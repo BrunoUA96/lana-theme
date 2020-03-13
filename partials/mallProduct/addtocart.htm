@@ -4,6 +4,23 @@
         align-items: flex-end;
         justify-content: start;
     }
+
+    @media (max-width: 768px) {
+        .mall-product__add-to-cart-form {
+            flex-direction: column;
+            justify-content: normal;
+        }
+
+        .mall-product__add-to-cart-form .mall-form-control,
+        .mall-product__add-to-cart-form .mall-add-to-cart-button {
+            width: 100%;
+        }
+
+        .mall-product__add-to-cart-form .mall-add-to-cart-button {
+            margin-top: 15px;
+        }
+    }
+
     .mall-form-control {
         display: flex;
         flex-direction: column;

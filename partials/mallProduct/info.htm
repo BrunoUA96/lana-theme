@@ -16,7 +16,7 @@
     {% partial __SELF__ ~ '::tax-info' item=item %}
 </div>
 
-<hr class="mt-0 mb-30 ">
+
 {% if false %}
     {% if item.description_short %}
         <h3 class="mall-product__description-short">
@@ -24,13 +24,15 @@
         </h3>
     {% endif %}
 {% endif %}
+{% if item.description %}
 <div class="mall-product__description">
     {{ item.description | raw }}
 </div>
 <hr class="mt-0 mb-30 ">
+{% endif %}
 
 {% partial __SELF__ ~ '::propertyvalues' images=item.all_images %}
-<hr class="mt-0 mb-30 ">
+
 {% if false %}
 {% partial __SELF__ ~ '::images' images=item.all_images %}
 {% endif %}

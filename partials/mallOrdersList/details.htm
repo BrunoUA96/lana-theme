@@ -2,13 +2,13 @@
     <td colspan="5">
         <div class="mall-order-details">
             <div class="mall-order-details__row row mx-0">
-                <div class="mall-order-details__detail col-md-6">
+                <div class="mall-order-details__detail col-xs-6 col-md-6">
                     <h5>{{'Order status'|_}}</h5>
                     <p>
                         {{ order.order_state_label }}
                     </p>
                 </div>
-                <div class="mall-order-details__detail col-md-6">
+                <div class="mall-order-details__detail col-xs-6 col-md-6">
                     <h5>{{'Payment status'|_}}</h5>
                     {% if order.payment_state_label == 'Payment pending' %}
                         <p>
@@ -44,13 +44,13 @@
                 </div>
             </div>
             <div class="mall-order-details__row row mx-0">
-                <div class="mall-order-details__detail col-md-6">
+                <div class="mall-order-details__detail col-xs-6 col-md-6">
                     <h5>{{'Shipping method'|_}}</h5>
                     <p>
                         {{ order.shipping.method.name }}
                     </p>
                 </div>
-                <div class="mall-order-details__detail col-md-6">
+                <div class="mall-order-details__detail col-xs-6 col-md-6">
                     <h5>{{'Payment method'|_}}</h5>
                     <p>
                         {{ order.payment_method.name }}
@@ -59,7 +59,7 @@
             </div>
             {% if order.tracking_number or order.tracking_url %}
                 <div class="mall-order-details__row row mx-0">
-                    <div class="mall-order-details__detail col-md-6">
+                    <div class="mall-order-details__detail col-xs-6 col-md-6">
                         <h5>{{ 'offline.mall::frontend.shipping_tracking' | trans }}</h5>
                         {% if order.tracking_url %}
                             <a href="{{ order.tracking_url }}" target="_blank"
@@ -77,11 +77,11 @@
                 </div>
             {% endif %}
             <div class="mall-order-details__row row mx-0">
-                <div class="mall-order-details__detail col-md-6">
+                <div class="mall-order-details__detail col-xs-6 col-md-6">
                     <h5>{{'Shipping Info'|_}}</h5>
                     {% partial __SELF__ ~ '::address' address=order.shipping_address %}
                 </div>
-                <div class="mall-order-details__detail col-md-6">
+                <div class="mall-order-details__detail col-xs-6 col-md-6">
                     <h5>{{'Info Billing'|_}}</h5>
                     {% partial __SELF__ ~ '::address' address=order.billing_address %}
                 </div>

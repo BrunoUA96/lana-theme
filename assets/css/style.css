@@ -1881,6 +1881,12 @@ a.logo:hover {
     cursor: pointer;
 }
 
+@media (max-width: 1039px) {
+    .inner-nav.desktop-nav.js-opened .mn-sub-multi li a {
+        color: #fff !important;
+    }
+}
+
 .mobile-on .mn-has-multi>li:last-child>a {
     border-bottom: 1px solid rgba(255, 255, 255, .065) !important;
 }
@@ -7433,6 +7439,10 @@ section:hover .small-item-carousel .owl-next {
     text-transform: none;
 }
 
+.tabela_vendas table td table.carrinho_produto span.name_produto {
+    margin-left: 10px;
+}
+
 /* line 184, ../sass/partials/carrinho/_tabela_produto.scss */
 .tabela_vendas table td table.carrinho_produto span.name_produto {
     color: #1D2126;
@@ -7448,4 +7458,147 @@ section:hover .small-item-carousel .owl-next {
 .tabela_vendas table th:first-child {
     width: 30%;
     text-align: left;
+}
+
+/* Profile */
+
+.nav_profile {
+    margin-top: 20px;
+}
+
+
+
+.nav_profile a {
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+.nav_profile .active {
+    background-color: rgba(34, 34, 34, .9);
+    color: #fff;
+}
+
+.nav_profile a span {
+    margin-right: 7px;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .nav_profile {
+        display: flex;
+    }
+
+    .nav_profile a {
+        width: 25%;
+        font-size: 11px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav_profile a span {
+        margin-right: 0;
+        margin-bottom: 7px;
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 992px) {
+
+    /* line 2, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table {
+        border: 0;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    /* line 14, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    /* line 42, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table tr {
+        border: 1px solid #95989A;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 993px) {
+
+    /* line 68, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table tr.mall-orders-list__details td .mall-order-details__row .mall-order-details__detail h5 {
+        color: #413444;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    /* line 87, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table td {
+        border-bottom: 1px solid #95989A;
+        display: block;
+        text-align: right;
+        height: auto;
+    }
+
+    /* line 97, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table td:last-child {
+        border-bottom: 0;
+    }
+
+    /* line 101, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #000;
+        font-size: 14px;
+    }
+
+    .dasboard_box .mall-orders-list__details td{
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    /* line 111, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table td p {
+        color: #000 !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    /* line 121, ../sass/partials/dasboard/_tabela_encomendas.scss */
+    .dasboard_box table td span.view {
+        background-color: rgba(34, 34, 34, .9);
+        color: #fff;
+        padding: 7px 20px;
+        border-radius: 2px;
+        text-transform: uppercase;
+    }
 }

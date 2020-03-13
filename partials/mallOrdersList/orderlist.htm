@@ -11,11 +11,11 @@
     
 </style>
 <div class="mall-table-overflow">
-    <h1>
+    <h1 class="font-alt">
         Orders
     </h1>
     <div class="row mb-4">
-        <div class="col-12 pt-5">
+        <div class="col-md-12 pt-5">
             <!-- Tabela Encomendas -->
             <table class="table mall-orders-list__table mall-table table-hover">
                 <thead>
@@ -32,17 +32,17 @@
                     
 
                         <tr class="mall-orders-list__order {{ order.isPaid ? '' : 'mall-orders-list__order--unpaid' }}">
-                            <td data-label="ordem">
+                            <td data-label="Order ID">
                                 <p>
                                     {{ order.order_number }}
                                 </p>
                             </td>
-                            <td data-label="data">
+                            <td data-label="Created at">
                                 <p>
                                     {% partial __SELF__ ~ '::created_at' order=order %}
                                 </p>
                             </td>
-                            <td data-label="tipo">
+                            <td data-label="Order state">
                                 <p>
                                     {{ order.order_state_label }}
                                 </p>
@@ -53,7 +53,7 @@
                                     {{ order.totalPostTaxes() | raw }}
                                 </p>
                             </td>
-                            <td data-label="estado">
+                            <td data-label="Payment state">
                                 <p>
                                     {% if order.isPaid %}
                                         Paid

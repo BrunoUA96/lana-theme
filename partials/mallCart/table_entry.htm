@@ -5,7 +5,7 @@
 {% set image = product.variant ? product.variant.image : product.data.image %}
 
 <tr class="product_row">
-    <td data-label="Produto">
+    <td data-label="Product">
         <table class="carrinho_produto">
             <tr class="position-relative">
                 <th>
@@ -39,7 +39,7 @@
             </tr>
         </table>
     </td>
-    <td data-label="Preço">
+    <td data-label="Variant">
         {% if product.variant %}
             <p class="preco">
                 {{ product.variant.properties_description | raw }}
@@ -50,12 +50,12 @@
             </p>
         {% endif %}
         </td>
-    <td data-label="Preço">
+    <td data-label="Price">
         <p class="preco">
             {{ product.price() }}
         </p>
     </td>
-    <td data-label="Quantidade" class="form">
+    <td data-label="Quantity" class="form">
         <select class="custom-select js-mall-quantity" style="background-color: #fff;" data-id="{{ product.hashId }}" name="quantity">
             {% set min = product.data.quantity_min | default(mallCart.defaultMinQuantity) %}
             {% set max = product.data.quantity_max | default(mallCart.defaultMaxQuantity) %}
